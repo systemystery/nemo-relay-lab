@@ -359,7 +359,7 @@ flowchart LR
   </div>
   <p class="caption">Figure 3. The harness loop. If personal agents can't enter it, evals only ever see a fraction of real usage.</p>
 
-  <p>NVIDIA's own Hermes ToolPerf benchmark shows why behavior matters as much as success: one harness fix lifted Qwen's success from 70% to 81% but cost 29% more LLM calls, about 2× the data, and 56% more latency. On the livestream, Patrick found a local model "passing" while it web-searched and compacted repeatedly instead of reading a skill.</p>
+  <p>NVIDIA's own Hermes ToolPerf benchmark shows why behavior matters as much as success: a set of harness fixes lifted Qwen's success from 70% to 81% but cost 29% more LLM calls, about 2× the data, and 56% more latency. On the livestream, Patrick found a local model "passing" while it web-searched and compacted repeatedly instead of reading a skill.</p>
   <p><strong>Experiment 8</strong> re-created Patrick's case synthetically: a <em>baseline</em> harness that web-searches versus a <em>skill-first</em> harness, 15 runs each. Every run was a personal agent behind the native privacy fence, with a canary secret planted in every prompt, response and tool result.</p>
   <table>
     <thead><tr><th>Harness arm</th><th>Pass</th><th>LLM calls</th><th>Tool calls</th><th>Tokens</th><th>Runs with compaction</th><th>Tools used</th></tr></thead>

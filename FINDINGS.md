@@ -8,7 +8,10 @@ Runs: `runs/01-quickstart` … `runs/05-overhead`.
 Context: the fleet design follows NVIDIA's livestream "Inside Hermes Agent Traces with NeMo Relay", where
 Nous Research described four observability levels (L1 health, L2 analytics without content, L3 audit, L4 full
 trajectories) and fencing personal agents to L2 in its OpenTelemetry collector. "Victor" and "Patrick" below
-refer to speakers on that livestream; their points are paraphrased from the auto-generated transcript.
+refer to Victor (Nous Research) and Patrick (NVIDIA), speakers on that livestream; their points are paraphrased from
+the auto-generated transcript. Sources: livestream https://www.youtube.com/watch?v=7HTRAsVX10E ; NVIDIA blog
+"Tracing Agent Harness Behavior with NVIDIA NeMo Relay" https://developer.nvidia.com/blog/tracing-agent-harness-behavior-with-nvidia-nemo-relay/ ;
+docs https://docs.nvidia.com/nemo/relay/about-nemo-relay/overview
 
 ## Findings
 
