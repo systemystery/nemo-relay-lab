@@ -5,6 +5,11 @@ callbacks; no API keys and no company traffic. Plugins: observability (ATOF + AT
 pii_redaction (email + credit_card). Scripts: `scripts/fleet_lab.py`, `scripts/overhead.py`.
 Runs: `runs/01-quickstart` … `runs/05-overhead`.
 
+Context: the fleet design follows NVIDIA's livestream "Inside Hermes Agent Traces with NeMo Relay", where
+Nous Research described four observability levels (L1 health, L2 analytics without content, L3 audit, L4 full
+trajectories) and fencing personal agents to L2 in its OpenTelemetry collector. "Victor" and "Patrick" below
+refer to speakers on that livestream; their points are paraphrased from the auto-generated transcript.
+
 ## Findings
 
 1. **The quickstart on `main` doesn't install.** It pins `nemo-relay==1.0.0`; PyPI's latest is 0.11.1.

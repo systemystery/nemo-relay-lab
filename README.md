@@ -20,7 +20,7 @@ Fully offline: mock model and tool callbacks, no API keys, no real user data.
 - **Cheap to run.** ~0.1-0.2 ms added per model or tool call (median, n = 2,000).
 
 19 findings in [FINDINGS.md](FINDINGS.md). All re-checked on a clean machine on 2026-11-11:
-[VERIFICATION.md](VERIFICATION.md). Product write-up: [brief.html](brief.html).
+[VERIFICATION.md](VERIFICATION.md). Product write-up (read this first): **[the brief](https://systemystery.github.io/nemo-relay-lab/brief.html)** ([source](brief.html)).
 
 ## Experiments
 
