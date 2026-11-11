@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NeMo Relay Through the Eyes of Its Users: A Hands-On Experience Review</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral', flowchart: { curve: 'basis' } });</script>
+<style>
+:root {
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "SFMono-Regular", "JetBrains Mono", Menlo, Consolas, monospace;
+  --text:#1f2937; --heading:#111827; --muted:#6b7280; --faint:#9ca3af; --border:#e5e7eb;
+  --bg:#ffffff; --bg-soft:#f9fafb; --bg-sunken:#f3f4f6;
+  --accent:#2563eb; --accent-soft:#eff6ff; --accent-deep:#1e40af;
+  --info-bg:#eff6ff; --info-border:#3b82f6; --warn-bg:#fffbeb; --warn-border:#f59e0b;
+  --ok-bg:#f0fdf4; --ok-border:#16a34a; --danger-bg:#fef2f2; --danger-border:#ef4444;
+  --question-bg:#f5f3ff; --question-border:#8b5cf6;
+  --s-1:4px; --s-2:8px; --s-3:12px; --s-4:16px; --s-5:24px; --s-6:32px; --s-7:48px; --s-8:64px; --s-9:96px;
+  --radius:8px; --radius-lg:14px;
+  --shadow-sm:0 1px 2px rgba(16,24,40,.06),0 1px 3px rgba(16,24,40,.10);
+  --shadow-md:0 4px 12px rgba(16,24,40,.08),0 2px 6px rgba(16,24,40,.06);
+  --ease:cubic-bezier(.22,.61,.36,1); --dur:.45s;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin:0; font-family:var(--font-sans); color:var(--text); background:var(--bg);
+  -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; font-size:16px; line-height:1.6; }
+h1,h2,h3 { color:var(--heading); letter-spacing:-0.02em; }
+h1 { font-size:32px; font-weight:800; line-height:1.15; margin:var(--s-3) 0 var(--s-2); }
+h2 { font-size:24px; font-weight:700; line-height:1.2; margin:0 0 var(--s-4); }
+h3 { font-size:18px; font-weight:600; line-height:1.3; margin:var(--s-5) 0 var(--s-2); }
+a { color:var(--accent); text-decoration:none; } a:hover { text-decoration:underline; }
+code { font-family:var(--font-mono); font-size:.88em; background:var(--bg-sunken); padding:2px 6px; border-radius:4px; }
+pre { background:var(--bg-sunken); border-radius:var(--radius); padding:var(--s-4); overflow-x:auto; font-size:13px; line-height:1.5; }
+pre code { background:none; padding:0; }
+@media (prefers-reduced-motion: reduce) { *,*::before,*::after { animation:none !important; transition:none !important; } }
+
+.doc { max-width:820px; margin:0 auto; padding:var(--s-6) var(--s-4) var(--s-9); }
+.wide { max-width:1080px; margin-left:50%; transform:translateX(-50%); width:min(1080px, 96vw); }
+.doc-header { border-bottom:1px solid var(--border); padding-bottom:var(--s-5); margin-bottom:var(--s-6); }
+.eyebrow { color:var(--accent); font-weight:600; letter-spacing:.08em; text-transform:uppercase; font-size:13px; margin:0; }
+.meta { color:var(--muted); font-size:14px; margin:var(--s-2) 0 0; }
+.tldr { margin-top:var(--s-5); padding:var(--s-4) var(--s-5); background:var(--accent-soft);
+  border-left:4px solid var(--accent); border-radius:var(--radius); }
+.toc { position:sticky; top:var(--s-4); z-index:5; background:var(--bg-soft); border:1px solid var(--border);
+  border-radius:var(--radius); padding:var(--s-3) var(--s-5); margin-bottom:var(--s-7); font-size:14px; box-shadow:var(--shadow-sm); }
+.toc ol { margin:0; padding-left:1.2em; columns:2; column-gap:var(--s-6); line-height:1.9; }
+section.block { margin-bottom:var(--s-7); scroll-margin-top:var(--s-9); }
+.lead { font-size:18px; color:var(--heading); }
+
+.callout { border-left:4px solid; border-radius:var(--radius); padding:var(--s-3) var(--s-4); margin:var(--s-4) 0; font-size:15px; }
+.callout .label { font-weight:700; }
+.callout.info { background:var(--info-bg); border-color:var(--info-border); }
+.callout.warn { background:var(--warn-bg); border-color:var(--warn-border); }
+.callout.ok { background:var(--ok-bg); border-color:var(--ok-border); }
+.callout.danger { background:var(--danger-bg); border-color:var(--danger-border); }
+.callout.question { background:var(--question-bg); border-color:var(--question-border); }
+
+table { width:100%; border-collapse:collapse; font-size:14.5px; margin:var(--s-4) 0; }
+th { text-align:left; padding:var(--s-2) var(--s-3); border-bottom:2px solid var(--border); color:var(--muted); font-weight:600; font-size:13px; text-transform:uppercase; letter-spacing:.04em; }
+td { padding:var(--s-2) var(--s-3); border-bottom:1px solid var(--border); vertical-align:top; }
+td.k { color:var(--muted); white-space:nowrap; }
+
+.stats { display:grid; grid-template-columns:repeat(4,1fr); gap:var(--s-4); margin:var(--s-5) 0; }
+.stat-card { background:var(--bg-soft); border:1px solid var(--border); border-radius:var(--radius-lg); padding:var(--s-4); text-align:center; }
+.stat { font-size:36px; font-weight:800; color:var(--accent); line-height:1.05; }
+.stat-card p { margin:var(--s-2) 0 0; color:var(--muted); font-size:13px; line-height:1.4; }
+
+.personas { display:grid; grid-template-columns:repeat(3,1fr); gap:var(--s-4); margin:var(--s-4) 0; }
+.persona { background:var(--bg-soft); border:1px solid var(--border); border-radius:var(--radius-lg); padding:var(--s-4); font-size:14px; }
+.persona h4 { margin:0 0 var(--s-1); font-size:15px; color:var(--heading); }
+.persona .job { color:var(--muted); margin:0 0 var(--s-2); font-style:italic; }
+.persona .tag { display:inline-block; font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.05em;
+  color:var(--accent-deep); background:var(--accent-soft); border-radius:999px; padding:2px 8px; margin-bottom:var(--s-2); }
+
+/* Journey map: one row-major grid so every row aligns across all stages */
+.journey-wrap { width:min(1080px, 96vw); margin:var(--s-4) 0 0 calc(50% - min(540px, 48vw)); overflow-x:auto;
+  border:1px solid var(--border); border-radius:var(--radius-lg); box-shadow:var(--shadow-sm); background:var(--bg); }
+.journey { display:grid; grid-template-columns:96px repeat(7, minmax(118px, 1fr)); min-width:940px; }
+.journey > div { padding:var(--s-3); font-size:12.5px; line-height:1.45;
+  border-right:1px solid var(--border); border-bottom:1px solid var(--border); }
+.journey > div:nth-child(8n) { border-right:none; }
+.journey > div.last { border-bottom:none; }
+.j-label { background:var(--bg-soft); color:var(--muted); font-weight:700; font-size:11px !important;
+  text-transform:uppercase; letter-spacing:.05em; display:flex; align-items:center; }
+.j-head { background:var(--heading); color:#fff; font-weight:700; font-size:13px !important; border-right-color:#374151 !important; }
+.j-head span { display:block; font-weight:500; font-size:11px; opacity:.8; margin-top:2px; }
+.j-corner { background:var(--heading); border-right-color:#374151 !important; }
+.j-good { background:var(--ok-bg); }
+.j-bad { background:var(--warn-bg); }
+.j-feel { text-align:center; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:2px; font-weight:700; }
+.j-feel .face { font-size:20px; line-height:1; }
+.mood-hi { color:#15803d; } .mood-mid { color:#b45309; } .mood-lo { color:#b91c1c; }
+
+.exp { display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:var(--s-3); margin:var(--s-4) 0; }
+.exp-card { border:1px solid var(--border); border-radius:var(--radius); padding:var(--s-3) var(--s-4); font-size:14px; background:var(--bg); }
+.exp-card .n { display:inline-grid; place-items:center; width:26px; height:26px; border-radius:50%; background:var(--accent); color:#fff; font-weight:700; font-size:13px; margin-right:var(--s-2); }
+.exp-card strong { color:var(--heading); }
+.exp-card p { margin:var(--s-2) 0 0; color:var(--muted); }
+
+.matrix { display:grid; grid-template-columns:28px 1fr 1fr; grid-template-rows:1fr 1fr 24px; gap:var(--s-2); margin:var(--s-4) 0; }
+.quad { border:1px solid var(--border); border-radius:var(--radius); padding:var(--s-3) var(--s-4); font-size:14px; min-height:150px; }
+.quad h4 { margin:0 0 var(--s-2); font-size:13px; text-transform:uppercase; letter-spacing:.05em; }
+.quad ul { margin:0; padding-left:1.1em; }
+.quad.qw { background:var(--ok-bg); } .quad.bb { background:var(--info-bg); }
+.quad.fi { background:var(--bg-soft); } .quad.cz { background:var(--bg-soft); }
+.axis-y { writing-mode:vertical-rl; transform:rotate(180deg); text-align:center; color:var(--muted); font-size:12px; font-weight:600; grid-row:1 / 3; }
+.axis-x { grid-column:2 / 4; text-align:center; color:var(--muted); font-size:12px; font-weight:600; }
+
+.caption { color:var(--faint); font-size:13px; margin-top:var(--s-2); }
+.pill { display:inline-block; font-size:11px; font-weight:700; padding:1px 8px; border-radius:999px; vertical-align:middle; }
+.pill.ok { background:var(--ok-bg); color:#15803d; border:1px solid #bbf7d0; }
+.pill.warn { background:var(--warn-bg); color:#b45309; border:1px solid #fde68a; }
+.pill.bad { background:var(--danger-bg); color:#b91c1c; border:1px solid #fecaca; }
+blockquote { margin:var(--s-4) 0; padding:var(--s-2) var(--s-5); border-left:3px solid var(--border); color:var(--heading); font-size:17px; font-style:italic; }
+blockquote cite { display:block; font-style:normal; color:var(--muted); font-size:13px; margin-top:var(--s-1); }
+.mermaid { background:var(--bg-soft); border:1px solid var(--border); border-radius:var(--radius-lg); padding:var(--s-4); text-align:center; }
+
+@keyframes rise { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:none; } }
+section.block { animation:rise .6s var(--ease) both; }
+
+@media (max-width: 760px) {
+  .stats, .personas { grid-template-columns:1fr 1fr; }
+  .toc ol { columns:1; }
+  .matrix { grid-template-columns:20px 1fr; } .quad.cz, .quad.fi { grid-column:2; }
+}
+@media print {
+  body { background:#fff; font-size:12.5px; }
+  a { color:var(--text); text-decoration:none; }
+  .toc { position:static; box-shadow:none; }
+  section.block { animation:none; }
+  .callout, table, .mermaid, .journey, .persona, .stat-card, .quad, .exp-card { break-inside:avoid; }
+  .wide { transform:none; margin-left:0; width:100%; }
+  .journey-wrap { width:100%; margin:var(--s-4) 0 0; overflow:visible; box-shadow:none; break-inside:avoid; }
+  .journey { grid-template-columns:72px repeat(7,1fr); min-width:0; }
+  .journey > div { font-size:10px; padding:6px; }
+}
+</style>
+</head>
+<body>
+<main class="doc">
+
+<header class="doc-header">
+  <p class="eyebrow">Hands-on product review · NVIDIA NeMo Relay 0.11.1</p>
+  <h1>NeMo Relay Through the Eyes of Its Users</h1>
+  <p style="font-size:18px;color:var(--muted);margin:0">A customer- and developer-experience review: who Relay serves, where the experience delights, where it breaks, and what I'd build next.</p>
+  <p class="meta">Nimish Singhal · Senior Technical Product Manager – AI Agents (JR2029528) candidate · November 10, 2026</p>
+  <div class="tldr">
+    <strong>TL;DR.</strong> I started with one product question: Relay serves everyone who touches an agent, not just developers, so can it understand <em>who</em> is behind a request and <em>what context</em> it's in? Nous Research's enterprise fleet demo made that concrete: personal agents need privacy, shared agents need full records. I built a small two-agent fleet on Relay 0.11.1 and ran eight experiments.
+    <br><br>
+    <strong>Finding:</strong> Relay <em>can</em> do it. Its scope-local sanitizers produced a personal agent with zero content but full token metrics across all five export formats. But <strong>the correct path is hard to find</strong>: 2 of my 3 attempts silently leaked content or lost metrics, and the defaults suggest a privacy that isn't there.
+    <br><br>
+    <strong>Why it matters for evals:</strong> most real agent usage is personal. In an eighth experiment I A/B-tested a harness change using <em>only</em> content-free telemetry: zero content exported, yet tokens, tool calls and compaction were fully measurable (synthetic data by design: the point is the measurement). But the fence silently deleted the pass/fail label too. <strong>Privacy and evals have to be designed together.</strong>
+    <br><br>
+    <strong>Recommendation:</strong> make the easy path the correct path, with honest defaults, then declarative privacy presets, owner/tier context set when an agent starts, and an eval-signal channel that survives privacy fences. That removes the same friction for every partner that embeds Relay, and lets evals cover the whole fleet, not just shared agents.
+  </div>
+</header>
+
+<nav class="toc" aria-label="Contents">
+  <strong style="display:block;text-transform:uppercase;font-size:12px;color:var(--muted);margin-bottom:var(--s-1)">Contents</strong>
+  <ol>
+    <li><a href="#question">The question I started with</a></li>
+    <li><a href="#personas">Who Relay serves</a></li>
+    <li><a href="#nous">What the Nous demo revealed</a></li>
+    <li><a href="#method">What I did</a></li>
+    <li><a href="#journey">The experience journey map</a></li>
+    <li><a href="#findings">Findings by persona</a></li>
+    <li><a href="#evals">From privacy to evals: the harness loop</a></li>
+    <li><a href="#opps">Opportunities, prioritized</a></li>
+    <li><a href="#ninety">My first 90 days</a></li>
+    <li><a href="#limits">What I didn't test</a></li>
+    <li><a href="#appendix">Appendix: reproduce it</a></li>
+  </ol>
+</nav>
+
+<!-- 1 -->
+<section class="block" id="question">
+  <h2>1. The question I started with</h2>
+  <p class="lead">Relay sits on every model call and tool call an agent makes. That makes it the one place in the stack that can see <em>who</em> is acting, <em>what</em> they're doing, and <em>how sensitive</em> it is.</p>
+  <p>Agents are no longer used only by engineers. A PM using Claude Code, a CFO with a morning-briefing agent, and a platform engineer debugging a harness all produce the same kind of event stream. So the product question isn't "how do we trace calls?" It's:</p>
+  <blockquote>Can Relay understand the user and the context of each request well enough to give each person the right protection, explanation and optimization?</blockquote>
+  <p>As a platform principle, I'd put it this way: <strong>Relay should <em>carry</em> context, not <em>interpret</em> it.</strong> The core standardizes identity, role, tier and sensitivity on every event. Partners and plugins decide what to do with it. A neutral standard that carries context is what scales across an ecosystem-led go-to-market.</p>
+</section>
+
+<!-- 2 -->
+<section class="block" id="personas">
+  <h2>2. Who Relay serves</h2>
+  <p>Relay is a developer library, but its value reaches people who will never install it. Value flows through layers:</p>
+  <div class="mermaid">
+flowchart LR
+  B["Builders<br/>framework teams, harness authors,<br/>plugin & observability partners"] -->|embed Relay| A["Operators<br/>IT and AI teams<br/>running agent fleets"]
+  A -->|deploy and govern| U["End users<br/>developers and business builders<br/>using agents daily"]
+  U -->|produce evidence| O["Oversight<br/>compliance, finance, leadership"]
+  </div>
+  <p class="caption">Figure 1. Relay must win the builders and operators. End users and oversight are <em>why</em> winning them matters.</p>
+
+  <div class="personas">
+    <div class="persona"><span class="tag">Builder</span><h4>App developer</h4><p class="job">"Show me what my agent did, without slowing it down."</p>Needs a fast first trace, clear errors, low overhead.</div>
+    <div class="persona"><span class="tag">Builder</span><h4>Partner integrator</h4><p class="job">"Embed Relay once and support every customer's policy."</p>Nous, framework teams, observability vendors. Needs composable primitives and safe defaults.</div>
+    <div class="persona"><span class="tag">Operator</span><h4>IT operator</h4><p class="job">"Roll agents out to 2,000 people safely."</p>Needs fleet-wide policy, health signals and routing by owner or tier.</div>
+    <div class="persona"><span class="tag">Operator</span><h4>AI team</h4><p class="job">"Tune skills and models without reading employee data."</p>Needs content-free analytics: tokens, tool sequences, latency.</div>
+    <div class="persona"><span class="tag">End user</span><h4>Employee / business builder</h4><p class="job">"Is my agent storing my email?"</p>Needs trust, and an honest guarantee about what's kept.</div>
+    <div class="persona"><span class="tag">Oversight</span><h4>Compliance &amp; leadership</h4><p class="job">"Prove control. Don't show me raw logs."</p>Needs audit records of what was blocked and why, with no error noise for executives.</div>
+  </div>
+</section>
+
+<!-- 3 -->
+<section class="block" id="nous">
+  <h2>3. What the Nous Research demo revealed</h2>
+  <p>In NVIDIA's <em>Inside Hermes Agent Traces with NeMo Relay</em> livestream, Nous Research's lead enterprise engineer described what changes when agents go from personal tools to managed fleets. Three ideas shaped this review (paraphrased from the auto-generated transcript):</p>
+  <table>
+    <thead><tr><th>Idea</th><th>What it means for Relay's users</th></tr></thead>
+    <tbody>
+      <tr><td class="k">The user/operator split</td><td>On a personal agent, you are user <em>and</em> operator. In a fleet, employees use agents while IT configures them and AI teams tune them. "The CFO doesn't want to see the errors." Different people need different views of the same run.</td></tr>
+      <tr><td class="k">"The same log is three things"</td><td>One trace is eval and training data, an employee's personal work data ("almost reading their email"), and company IP. What to keep depends on <strong>whose agent</strong> it is and <strong>what's in the request</strong>.</td></tr>
+      <tr><td class="k">Four layers of observability</td><td>L1 health (no content) → L2 analytics (tokens and tool names, no content) → L3 audit (varies by company) → L4 full trajectories. Personal agents are fenced to about L2, shared agents keep L4. Today Nous enforces that fence <em>downstream</em>, in its OpenTelemetry collector.</td></tr>
+    </tbody>
+  </table>
+  <div class="callout question"><span class="label">❓ The question this raised:</span> If every partner has to rebuild Nous's fence in its own collector, can Relay enforce it <em>at the source</em>, before content ever leaves the agent process?</div>
+</section>
+
+<!-- 4 -->
+<section class="block" id="method">
+  <h2>4. What I did</h2>
+  <p>I built a sandboxed fake fleet modeled on the Nous demo, with no live model, no API keys and no company data. <strong>Alice's personal agent</strong> should keep metrics but no content. The <strong>ops team's shared agent</strong> should keep everything. Each agent got a prompt containing an email, card number and phone number, a tool call, a helper subagent and an attempted <code>rm -rf</code>. Both ran concurrently.</p>
+  <div class="exp">
+    <div class="exp-card"><span class="n">1</span><strong>Official quickstart</strong><p>Does the first-run experience work?</p></div>
+    <div class="exp-card"><span class="n">2</span><strong>Fleet, default settings</strong><p>What's recorded when no one configures privacy?</p></div>
+    <div class="exp-card"><span class="n">3</span><strong>Privacy fence v1 (event sanitizers)</strong><p>Can one agent be treated differently from another?</p></div>
+    <div class="exp-card"><span class="n">4</span><strong>Fence v2 (stricter)</strong><p>What does it take to remove all content?</p></div>
+    <div class="exp-card"><span class="n">5</span><strong>Overhead benchmark</strong><p>Does Relay slow agents down? (n = 2,000 calls)</p></div>
+    <div class="exp-card"><span class="n">6</span><strong>OpenTelemetry export</strong><p>Does privacy survive into <code>full</code>, <code>gen_ai</code> and <code>openinference</code> spans?</p></div>
+    <div class="exp-card"><span class="n">7</span><strong>Fence v3 (native LLM/tool sanitizers)</strong><p>Is there a "right" path that keeps metrics without content?</p></div>
+    <div class="exp-card"><span class="n">8</span><strong>Content-free harness A/B eval</strong><p>Can you evaluate a harness change on personal agents without reading their content? (2 arms × 15 runs)</p></div>
+  </div>
+  <div class="callout info"><span class="label">ℹ️ How I worked:</span> I used Claude Code as my engineering partner to write and run the test harness, the same way Relay's customers increasingly build. The product questions, persona lens and interpretation are mine. Everything is reproducible (see the <a href="#appendix">Appendix</a>).</div>
+
+  <div class="stats">
+    <div class="stat-card"><div class="stat">0</div><p>content items exported for the personal agent, across all 5 formats (fence v3)</p></div>
+    <div class="stat-card"><div class="stat">5 / 5</div><p>formats that kept token metrics with the native path</p></div>
+    <div class="stat-card"><div class="stat">2 of 3</div><p>privacy attempts that failed <em>silently</em> before the right path</p></div>
+    <div class="stat-card"><div class="stat">0.19 ms</div><p>added per model or tool call (median; p95 ≈ 0.25 ms)</p></div>
+  </div>
+</section>
+
+<!-- 5 -->
+<section class="block" id="journey">
+  <h2>5. The experience journey map</h2>
+  <p>The journey of a partner or operator adopting Relay for a mixed fleet, scored on how it felt at each stage, with evidence from the experiments.</p>
+  <div class="journey-wrap">
+  <div class="journey" role="table" aria-label="Experience journey map">
+    <!-- Row 1: stages -->
+    <div class="j-corner" role="columnheader"></div>
+    <div class="j-head" role="columnheader">Discover<span>"What is this?"</span></div>
+    <div class="j-head" role="columnheader">Install<span>"Get it running"</span></div>
+    <div class="j-head" role="columnheader">First trace<span>"Did it work?"</span></div>
+    <div class="j-head" role="columnheader">Protect privacy<span>"Fence Alice"</span></div>
+    <div class="j-head" role="columnheader">Export<span>"See it in a dashboard"</span></div>
+    <div class="j-head" role="columnheader">Operate<span>"Run the fleet"</span></div>
+    <div class="j-head" role="columnheader">Audit<span>"Prove control"</span></div>
+    <!-- Row 2: what works -->
+    <div class="j-label" role="rowheader">✅ Works</div>
+    <div class="j-good" role="cell">Clear positioning: "not a dashboard"; one event stream feeds many backends.</div>
+    <div class="j-good" role="cell">Isolated venv install in seconds.</div>
+    <div class="j-good" role="cell">Quickstart ran in 0.15 s. Strict validation caught my config typos with precise messages.</div>
+    <div class="j-good" role="cell">Scope-local rules inherited by subagents; the native path gets 0 content plus full metrics.</div>
+    <div class="j-good" role="cell">Fence held in all 3 OTel projections; tokens kept (v3).</div>
+    <div class="j-good" role="cell">0.19 ms overhead; correct parentage with concurrent agents.</div>
+    <div class="j-good" role="cell"><code>rm -rf</code> blocked before running; the check is recorded as its own event.</div>
+    <!-- Row 3: friction -->
+    <div class="j-label" role="rowheader">⚠️ Friction</div>
+    <div class="j-bad" role="cell">Value is described in developer terms; operator and employee outcomes are implicit.</div>
+    <div class="j-bad" role="cell">Quickstart on <code>main</code> pins <code>1.0.0</code>; PyPI's latest is <code>0.11.1</code>. Copy-paste fails.</div>
+    <div class="j-bad" role="cell">None for basic tracing.</div>
+    <div class="j-bad" role="cell"><code>enable_full_payloads=false</code> still captures everything. v1 leaked prompts; v2 lost tokens. No warning either time.</div>
+    <div class="j-bad" role="cell"><code>gen_ai</code> spans drop owner/tier context; content copied 2–3× per span.</div>
+    <div class="j-bad" role="cell">No declarative tier per agent or owner; the agent's first event can't carry injected context.</div>
+    <div class="j-bad" role="cell">Log says "blocked" but not <em>what</em> was attempted. Regex PII missed a name and phone.</div>
+    <!-- Row 4: feeling -->
+    <div class="j-label last" role="rowheader">Feeling</div>
+    <div class="j-feel mood-hi last" role="cell"><span class="face" aria-hidden="true">🙂</span>Positive</div>
+    <div class="j-feel mood-lo last" role="cell"><span class="face" aria-hidden="true">😕</span>Friction</div>
+    <div class="j-feel mood-hi last" role="cell"><span class="face" aria-hidden="true">😀</span>Delight</div>
+    <div class="j-feel mood-lo last" role="cell"><span class="face" aria-hidden="true">😣</span>Pain</div>
+    <div class="j-feel mood-mid last" role="cell"><span class="face" aria-hidden="true">😐</span>Mixed</div>
+    <div class="j-feel mood-mid last" role="cell"><span class="face" aria-hidden="true">😐</span>Mixed</div>
+    <div class="j-feel mood-mid last" role="cell"><span class="face" aria-hidden="true">😐</span>Mixed</div>
+  </div>
+  </div>
+  <p class="caption">Figure 2. The experience peaks at first trace and bottoms out at "protect privacy", the stage enterprise fleets care about most.</p>
+</section>
+
+<!-- 6 -->
+<section class="block" id="findings">
+  <h2>6. Findings by persona</h2>
+
+  <h3>App developer and partner integrator: developer experience</h3>
+  <table>
+    <tbody>
+      <tr><td><span class="pill ok">Works</span></td><td>Fast, clean first trace. Strict config validation with precise errors (e.g., <code>field 'sinks' is not recognized for 'atif'</code>). Negligible overhead.</td></tr>
+      <tr><td><span class="pill ok">Works</span></td><td><strong>Scope-local primitives are powerful.</strong> Rules attached to one agent apply to its whole subtree, including subagents.</td></tr>
+      <tr><td><span class="pill bad">Friction</span></td><td><strong>The correct privacy path is not the obvious one.</strong> Generic event sanitizers (the first tool I reached for) either leaked the normalized prompt into ATIF (v1) or wiped token metrics from ATIF and every OTel projection (v2). Only the native LLM/tool sanitizers (v3) got it right.</td></tr>
+      <tr><td><span class="pill warn">Effort</span></td><td>The correct fence took <strong>5 callbacks across 3 registries</strong>, plus knowledge of the provider's response shape. Mine is OpenAI-chat-specific, so a multi-provider partner needs one per codec.</td></tr>
+      <tr><td><span class="pill warn">Docs</span></td><td>Docs on <code>main</code> run ahead of the published release, so the first run fails.</td></tr>
+    </tbody>
+  </table>
+
+  <h3>IT operator: running the fleet</h3>
+  <table>
+    <tbody>
+      <tr><td><span class="pill bad">Gap</span></td><td><strong>No declarative privacy tier.</strong> PII rules target JSON paths in payloads, not an agent, owner or deployment unit. Tiering is code, not configuration.</td></tr>
+      <tr><td><span class="pill warn">Gap</span></td><td>The <code>gen_ai</code> projection, which Relay adds automatically when <code>OTEL_EXPORTER_OTLP_ENDPOINT</code> is set, emits GenAI semantic conventions only and dropped my <code>owner</code>/<code>privacy_tier</code> labels. A collector-side fence can't route on them. (<code>full</code> and <code>openinference</code> kept them.)</td></tr>
+      <tr><td><span class="pill warn">Gap</span></td><td>The agent's own start event can't receive injected context, because injectors register after the scope opens.</td></tr>
+      <tr><td><span class="pill ok">Works</span></td><td>Correct parent/child attribution with two agents and their subagents interleaving.</td></tr>
+    </tbody>
+  </table>
+
+  <h3>AI team: improving agents</h3>
+  <table>
+    <tbody>
+      <tr><td><span class="pill ok">Works</span></td><td><strong>Victor's L2 tier is achievable.</strong> With the native path, the personal agent exported token counts (<code>gen_ai.usage.*</code>, <code>llm.token_count.*</code>), tool names, timing and full ATIF step metrics with zero content. AI teams <em>can</em> tune skills without reading employee data.</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Employee: trust</h3>
+  <table>
+    <tbody>
+      <tr><td><span class="pill bad">Risk</span></td><td><strong>Defaults suggest privacy that isn't there.</strong> With <code>enable_full_payloads = false</code>, the event log still held the prompt, response, tool arguments and results. The flag only stops repeating earlier conversation turns.</td></tr>
+      <tr><td><span class="pill warn">Risk</span></td><td>Built-in PII redaction caught email and card numbers. A name ("bob smith") passed through, and so did the phone number, since that detector wasn't enabled. Output had a formatting slip: <code>card [REDACTED]and call me</code>.</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Compliance and leadership: proof of control</h3>
+  <table>
+    <tbody>
+      <tr><td><span class="pill ok">Works</span></td><td>The destructive command was blocked <em>before</em> it ran, and the guardrail check is recorded as its own auditable event.</td></tr>
+      <tr><td><span class="pill warn">Gap</span></td><td>The record shows the rejection reason, but nothing about <em>what was attempted</em>. That's privacy-safe, but auditors will ask.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout warn"><span class="label">⚠️ A correction, kept on purpose:</span> After experiment 6, I believed Relay <em>couldn't</em> keep token metrics for a content-free agent. Experiment 7 proved me wrong: the native sanitizers do it. I've kept this visible because it <em>is</em> the finding. A motivated PM with a coding agent took three attempts to find the right path, and partners will hit the same wall.</div>
+  <p style="font-size:14px;color:var(--muted)">Also observed: Relay adds an <code>x-dynamo-session-id</code> header to model requests by default, a built-in link to NVIDIA Dynamo serving.</p>
+</section>
+
+<!-- 7 -->
+<section class="block" id="evals">
+  <h2>7. From privacy to evals: the harness loop</h2>
+  <p class="lead">Relay's deepest value isn't recording runs. It's helping people <strong>make agents better</strong>: observe a run, evaluate it, change the harness, and measure again.</p>
+  <div class="mermaid">
+flowchart LR
+  R["Agent runs<br/>(personal + shared)"] --> T["Relay telemetry<br/>(fenced by tier)"]
+  T --> E["Evaluate<br/>success + cost + behavior"]
+  E --> C["Change harness<br/>skill, prompt, model, tool"]
+  C --> R
+  </div>
+  <p class="caption">Figure 3. The harness loop. If personal agents can't enter it, evals only ever see a fraction of real usage.</p>
+
+  <p>NVIDIA's own Hermes ToolPerf benchmark shows why behavior matters as much as success: one harness fix lifted Qwen's success from 70% to 81% but cost 29% more LLM calls, about 2× the data, and 56% more latency. On the livestream, Patrick found a local model "passing" while it web-searched and compacted repeatedly instead of reading a skill.</p>
+  <p><strong>Experiment 8</strong> re-created Patrick's case synthetically: a <em>baseline</em> harness that web-searches versus a <em>skill-first</em> harness, 15 runs each. Every run was a personal agent behind the native privacy fence, with a canary secret planted in every prompt, response and tool result.</p>
+  <table>
+    <thead><tr><th>Harness arm</th><th>Pass</th><th>LLM calls</th><th>Tool calls</th><th>Tokens</th><th>Runs with compaction</th><th>Tools used</th></tr></thead>
+    <tbody>
+      <tr><td class="k">Baseline</td><td>14 / 15</td><td>4.5</td><td>2.8</td><td>10,509</td><td>73%</td><td><code>web_search</code></td></tr>
+      <tr><td class="k">Skill-first</td><td>13 / 15</td><td>2.0</td><td>1.0</td><td>2,350</td><td>0%</td><td><code>skill_view</code></td></tr>
+    </tbody>
+  </table>
+  <p class="caption">Canary content exported: 0, in ATOF and in all 30 ATIF trajectories. Values are synthetic by construction; what the experiment demonstrates is the <em>measurement</em>, not a real harness result.</p>
+  <div class="callout ok"><span class="label">✅ What works:</span> A harness change can be evaluated on personal agents with <strong>zero content</strong>. Pass rates sit within noise while tokens differ about 4.5×, exactly the kind of trade-off success metrics hide. This is Victor's "you don't need content to make some of those decisions," made measurable.</div>
+  <div class="callout danger"><span class="label">⛔ What breaks:</span> When I recorded pass/fail in the event's <code>data</code>, the obvious place, the privacy fence <strong>silently deleted it</strong> along with the content. Only a copy in <code>metadata</code> survived. Arm attribution also worked only because I passed it as scope metadata at creation. Today there's no defined channel for labels and scores that should pass a privacy fence.</div>
+  <p><strong>The product insight:</strong> privacy and evals are usually owned by different teams, but in Relay they're the same pipeline. A fence designed without evals blinds the AI team, and an eval design without privacy can't touch personal agents. Relay is the one layer that can serve both, if it ships them together.</p>
+</section>
+
+<!-- 8 -->
+<section class="block" id="opps">
+  <h2>8. Opportunities, prioritized</h2>
+  <p class="lead">Theme: <strong>the "pit of success."</strong> When the easiest path is also the correct path, partners adopt faster and fleets stay safe by default.</p>
+  <table>
+    <thead><tr><th>#</th><th>Opportunity</th><th>Persona</th><th>Fixes</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td><strong>Honest content defaults.</strong> Split <code>enable_full_payloads</code> into turn filtering plus <code>content_capture = "none" | "redacted" | "full"</code>, and log the active mode at startup.</td><td>Employee, operator</td><td>Misleading flag</td></tr>
+      <tr><td>2</td><td><strong>Declarative privacy presets.</strong> e.g., <code>privacy_tier = "metrics_only"</code> per agent, owner or deployment unit in <code>plugins.toml</code>, generating the correct native sanitizers for each codec.</td><td>Partner, operator, AI team</td><td>5-callback fence; silent failures</td></tr>
+      <tr><td>3</td><td><strong>Context at birth.</strong> Owner, role and tier on the scope from creation, carried to every event and mapped into the <code>gen_ai</code> projection through standard attributes.</td><td>Operator, partner</td><td>Unstamped root event; <code>gen_ai</code> context loss</td></tr>
+      <tr><td>4</td><td><strong>Privacy self-check.</strong> A validation or "doctor" mode that plants canary strings and verifies no content (and no metric loss) reaches any configured exporter.</td><td>Partner, compliance</td><td>Silent leaks</td></tr>
+      <tr><td>5</td><td><strong>Audit-safe blocked-attempt records.</strong> The attempted action's category and hash, with detail by tier.</td><td>Compliance</td><td>"Attempted what?"</td></tr>
+      <tr><td>6</td><td><strong>Release-pinned quickstarts,</strong> tested in CI against the published package.</td><td>Developer</td><td>First-run failure</td></tr>
+      <tr><td>7</td><td><strong>Broader PII defaults</strong> plus a local-model detector for names and free text; fix the spacing artifact.</td><td>Employee</td><td>Regex gaps</td></tr>
+      <tr><td>8</td><td><strong>De-duplicate content in span projections</strong> (2–3 copies today).</td><td>Operator</td><td>Storage, redaction surface</td></tr>
+      <tr><td>9</td><td><strong>Eval-signal channel.</strong> A first-class, documented place for labels, scores and experiment arms (e.g., <code>eval.*</code>) that privacy presets always let through, alongside metrics.</td><td>AI team, eval partners</td><td>Fence deletes pass/fail</td></tr>
+      <tr><td>10</td><td><strong>Content-free harness comparison kit.</strong> A reference recipe that turns L2 telemetry from two harness arms into a success-plus-cost report, so every partner can run ToolPerf-style evaluations on personal agents.</td><td>AI team, harness builders</td><td>Evals limited to shared agents</td></tr>
+    </tbody>
+  </table>
+
+  <div class="matrix wide" style="max-width:820px;transform:none;margin-left:0;width:100%">
+    <div class="axis-y">Impact on adoption & trust →</div>
+    <div class="quad qw"><h4>✅ Quick wins: high impact, low effort</h4><ul><li>#1 Honest content defaults</li><li>#9 Eval-signal channel</li><li>#6 Release-pinned quickstarts</li><li>#5 Blocked-attempt records</li></ul></div>
+    <div class="quad bb"><h4>🎯 Big bets: high impact, higher effort</h4><ul><li>#2 Declarative privacy presets</li><li>#3 Context at birth + <code>gen_ai</code> mapping</li><li>#10 Content-free harness comparison kit</li><li>#4 Privacy self-check</li></ul></div>
+    <div class="quad fi"><h4>Fill-ins: lower impact, low effort</h4><ul><li>#7a PII spacing fix, broader default detectors</li></ul></div>
+    <div class="quad cz"><h4>Consider later</h4><ul><li>#8 Span de-duplication</li><li>#7b Local-model PII detector</li></ul></div>
+    <div></div><div class="axis-x">Effort →</div>
+  </div>
+  <p class="caption">Figure 4. Ship the quick wins with 1.0. The big bets turn Nous's hand-built fence into one line of config and bring personal agents into the eval loop.</p>
+</section>
+
+<!-- 9 -->
+<section class="block" id="ninety">
+  <h2>9. My first 90 days as PM</h2>
+  <table>
+    <thead><tr><th>When</th><th>Focus</th><th>Outcome</th></tr></thead>
+    <tbody>
+      <tr><td class="k">Days 1–30</td><td><strong>Listen.</strong> Talk to about 10 embedding partners (harness builders, framework teams, observability vendors) about onboarding and privacy. Triage community issues by persona.</td><td>A persona-ranked problem list, validated beyond my own experiments</td></tr>
+      <tr><td class="k">Days 31–60</td><td><strong>Lock 1.0 and ship quick wins.</strong> Honest content defaults, pinned quickstarts, blocked-attempt records. Write an RFC for context at birth and privacy presets.</td><td>A stable contract partners can build on; RFC in community review</td></tr>
+      <tr><td class="k">Days 61–90</td><td><strong>Prove one loop end to end.</strong> A reference "enterprise fleet" example with a launch partner: personal agents fenced to L2, shared agents at L4, and a content-free harness comparison that improves a real skill. Plus a talk or post.</td><td>A reusable pattern that shows observe → govern → evaluate → improve</td></tr>
+    </tbody>
+  </table>
+  <div class="callout ok"><span class="label">✅ Metrics I'd track:</span> time to first correct trace; share of deployments with an explicit content policy; share of fleet usage (including personal agents) that can enter an eval loop; partner integrations shipped; and the north star, the share of agent actions in target accounts that are <strong>governed</strong> (recorded with context and covered by a policy).</div>
+</section>
+
+<!-- 10 -->
+<section class="block" id="limits">
+  <h2>10. What I didn't test</h2>
+  <ul>
+    <li><strong>Synthetic data only:</strong> mock model and tool callbacks, one provider shape (OpenAI Chat). Real streaming, large payloads and multiple providers may behave differently. The harness A/B outcomes are simulated; only the measurement is real.</li>
+    <li><strong>Not exercised:</strong> the Claude Code/Codex gateway, a live OTLP backend, adaptive tuning and caching (ACG, response cache, hints), the daemon, and streaming responses.</li>
+    <li><strong>Attribution</strong> was tested with explicit scope handles, not the implicit scope stack.</li>
+    <li><strong>Livestream quotes</strong> are paraphrased from an auto-generated transcript.</li>
+    <li>The team may already be tracking some of these. I offer them as <em>what a partner will hit</em>, not <em>what was missed</em>.</li>
+  </ul>
+</section>
+
+<!-- 11 -->
+<section class="block" id="appendix">
+  <h2>11. Appendix: reproduce it</h2>
+  <p>Python 3.13, <code>nemo-relay==0.11.1</code> from PyPI, macOS arm64. Fully offline.</p>
+<pre><code>python3 -m venv .venv &amp;&amp; .venv/bin/pip install "nemo-relay==0.11.1"
+# plugins.toml: observability (ATOF + ATIF + 3 OTel file sinks) + pii_redaction (email, credit_card)
+.venv/bin/python fleet_lab.py baseline     # exp 2: defaults
+.venv/bin/python fleet_lab.py tiered       # exp 4/6: event-sanitizer fence
+.venv/bin/python fleet_lab.py tiered-v3    # exp 7: native LLM/tool sanitizers
+.venv/bin/python -I analyze_otel.py logs   # per-agent content / token / context check
+.venv/bin/python overhead.py plugins.toml  # exp 5: 2,000-call benchmark
+.venv/bin/python harness_eval.py           # exp 8: content-free harness A/B (2 arms x 15 runs)
+.venv/bin/python -I analyze_eval.py logs/events.jsonl</code></pre>
+  <table>
+    <thead><tr><th>Personal agent (L2)</th><th>Fence v1</th><th>Fence v2</th><th>Fence v3 (native)</th></tr></thead>
+    <tbody>
+      <tr><td class="k">Content in ATOF</td><td>leaked via annotations</td><td>0</td><td>0</td></tr>
+      <tr><td class="k">Content in ATIF</td><td>leaked prompts</td><td>0</td><td>0</td></tr>
+      <tr><td class="k">Content in OTel (3 projections)</td><td>n/a</td><td>0</td><td>0</td></tr>
+      <tr><td class="k">ATIF steps / token totals</td><td>1 / partial</td><td>1 / none</td><td>3 / 120 prompt + 30 completion</td></tr>
+      <tr><td class="k">OTel token attributes</td><td>n/a</td><td>none</td><td>present in all 3</td></tr>
+    </tbody>
+  </table>
+  <p class="caption">Overhead: median 0.183 ms per tool call and 0.195 ms per LLM call with observability and PII redaction enabled (n = 2,000 each; p95 about 0.25 ms). ATOF ≈ 1.15 KB per call for tiny payloads.</p>
+</section>
+
+<p style="color:var(--faint);font-size:13px;border-top:1px solid var(--border);padding-top:var(--s-4)">Sources: NeMo Relay repository and docs (0.11.1 tag and <code>main</code>, Nov 2026); NVIDIA Technical Blog, "Tracing Agent Harness Behavior with NVIDIA NeMo Relay"; Nemotron Labs livestream, "Inside Hermes Agent Traces with NeMo Relay"; NVIDIA job posting JR2029528. Independent analysis; not affiliated with or endorsed by NVIDIA.</p>
+</main>
+</body>
+</html>

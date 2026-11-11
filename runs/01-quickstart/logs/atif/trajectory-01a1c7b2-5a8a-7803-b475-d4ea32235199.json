@@ -1,0 +1,797 @@
+{
+  "agent": {
+    "model_name": "unknown",
+    "name": "fleet-lab",
+    "version": "0.11.1"
+  },
+  "extra": {
+    "nemo_relay": {
+      "session_instance_id": "01a1c7b2-5a8a-7803-b475-d4ea32235199"
+    },
+    "observed_events": [
+      {
+        "atof_version": "0.1",
+        "attributes": [],
+        "category": "agent",
+        "category_profile": null,
+        "data": null,
+        "data_schema": null,
+        "kind": "scope",
+        "metadata": {
+          "declared_owner": "alice"
+        },
+        "name": "alice-personal",
+        "parent_uuid": "01a1c7b2-5a8a-7803-b475-d4c7663df8a4",
+        "propagation_root_uuid": "01a1c7b2-5a8a-7803-b475-d4ea32235199",
+        "scope_category": "start",
+        "timestamp": "2026-11-10T23:01:57.002812+00:00",
+        "uuid": "01a1c7b2-5a8a-7803-b475-d4ea32235199"
+      },
+      {
+        "atof_version": "0.1",
+        "category": null,
+        "category_profile": null,
+        "data": {
+          "channel": "slack-dm",
+          "user_text": "Summarize my inbox. Reply to [REDACTED] about card [REDACTED]and call me at 415-555-0199."
+        },
+        "data_schema": null,
+        "kind": "mark",
+        "metadata": null,
+        "name": "session_start",
+        "parent_uuid": "01a1c7b2-5a8a-7803-b475-d4ea32235199",
+        "propagation_root_uuid": "01a1c7b2-5a8a-7803-b475-d4ea32235199",
+        "timestamp": "2026-11-10T23:01:57.003692+00:00",
+        "uuid": "01a1c7b2-5a8b-7f31-84d4-50ec478328b5"
+      },
+      {
+        "atof_version": "0.1",
+        "attributes": [],
+        "category": "llm",
+        "category_profile": {
+          "annotated_request": {
+            "api_specific": {
+              "api": "openai_chat"
+            },
+            "messages": [
+              {
+                "content": "Summarize my inbox. Reply to [REDACTED] about card [REDACTED]and call me at 415-555-0199.",
+                "role": "user"
+              }
+            ],
+            "model": "mock-model-1"
+          },
+          "model_name": "mock-model-1"
+        },
+        "data": {
+          "content": {
+            "messages": [
+              {
+                "content": "Summarize my inbox. Reply to [REDACTED] about card [REDACTED]and call me at 415-555-0199.",
+                "role": "user"
+              }
+            ],
+            "model": "mock-model-1"
+          },
+          "headers": {
+            "x-dynamo-session-id": "alice-personal"
+          }
+        },
+        "data_schema": null,
+        "kind": "scope",
+        "metadata": null,
+        "name": "planner",
+        "parent_uuid": "01a1c7b2-5a8a-7803-b475-d4ea32235199",
+        "propagation_root_uuid": "01a1c7b2-5a8a-7803-b475-d4ea32235199",
+        "scope_category": "start",
+        "timestamp": "2026-11-10T23:01:57.006954+00:00",
+        "uuid": "01a1c7b2-5a8d-7ee0-9813-faf7fb58535e"
+      },
+      {
+        "atof_version": "0.1",
+        "attributes": [],
+        "category": "llm",
+        "category_profile": {
+          "model_name": "mock-model-1"
+        },
+        "data": {
+          "choices": [
+            {
+              "finish_reason": "stop",
+              "index": 0,
+              "message": {
+                "content": "[alice-personal] Bob emailed about card [REDACTED].",
+                "role": "assistant"
+              }
+            }
+          ],
+          "id": "chatcmpl-alice-personal",
+          "model": "mock-model-1",
+          "object": "chat.completion",
+          "usage": {
+            "completion_tokens": 30,
+            "prompt_tokens": 120,
+            "total_tokens": 150
+          }
+        },
+        "data_schema": null,
+        "kind": "scope",
+        "metadata": {
+          "otel.status_code": "OK"
+        },
+        "name": "planner",
+        "parent_uuid": "01a1c7b2-5a8a-7803-b475-d4ea32235199",
+        "propagation_root_uuid": "01a1c7b2-5a8a-7803-b475-d4ea32235199",
+        "scope_category": "end",
+        "timestamp": "2026-11-10T23:01:57.014380+00:00",
+        "uuid": "01a1c7b2-5a8d-7ee0-9813-faf7fb58535e"
+      },
+      {
+        "atof_version": "0.1",
+        "attributes": [],
+        "category": "guardrail",
+        "category_profile": null,
+        "data": {
+          "kind": "tool_conditional_execution",
+          "target_name": "read_email"
+        },
+        "data_schema": null,
+        "kind": "scope",
+        "metadata": null,
+        "name": "block-destructive",
+        "parent_uuid": "01a1c7b2-5a8a-7803-b475-d4ea32235199",
+        "propagation_root_uuid": "01a1c7b2-5a8a-7803-b475-d4ea32235199",
+        "scope_category": "start",
+        "timestamp": "2026-11-10T23:01:57.015222+00:00",
+        "uuid": "01a1c7b2-5a97-7792-b0c3-447ee4881d3a"
+      },
+      {
+        "atof_version": "0.1",
+        "attributes": [],
+        "category": "guardrail",
+        "category_profile": null,
+        "data": {
+          "allowed": true,
+          "rejected": false
+        },
+        "data_schema": null,
+        "kind": "scope",
+        "metadata": null,
+        "name": "block-destructive",
+        "parent_uuid": "01a1c7b2-5a8a-7803-b475-d4ea32235199",
+        "propagation_root_uuid": "01a1c7b2-5a8a-7803-b475-d4ea32235199",
+        "scope_category": "end",
+        "timestamp": "2026-11-10T23:01:57.015527+00:00",
+        "uuid": "01a1c7b2-5a97-7792-b0c3-447ee4881d3a"
+      },
+      {
+        "atof_version": "0.1",
+        "attributes": [],
+        "category": "tool",
+        "category_profile": {},
+        "data": {
+          "folder": "inbox",
+          "reply_to": "[REDACTED]"
+        },
+        "data_schema": null,
+        "kind": "scope",
+        "metadata": null,
+        "name": "read_email",
+        "parent_uuid": "01a1c7b2-5a8a-7803-b475-d4ea32235199",
+        "propagation_root_uuid": "01a1c7b2-5a8a-7803-b475-d4ea32235199",
+        "scope_category": "start",
+        "timestamp": "2026-11-10T23:01:57.015692+00:00",
+        "uuid": "01a1c7b2-5a97-7792-b0c3-4492044577c6"
+      },
+      {
+        "atof_version": "0.1",
+        "attributes": [],
+        "category": "tool",
+        "category_profile": {},
+        "data": {
+          "messages": [
+            {
+              "from": "[REDACTED]",
+              "subject": "Q3 card statement"
+            }
+          ]
+        },
+        "data_schema": null,
+        "kind": "scope",
+        "metadata": {
+          "otel.status_code": "OK"
+        },
+        "name": "read_email",
+        "parent_uuid": "01a1c7b2-5a8a-7803-b475-d4ea32235199",
+        "propagation_root_uuid": "01a1c7b2-5a8a-7803-b475-d4ea32235199",
+        "scope_category": "end",
+        "timestamp": "2026-11-10T23:01:57.016120+00:00",
+        "uuid": "01a1c7b2-5a97-7792-b0c3-4492044577c6"
+      },
+      {
+        "atof_version": "0.1",
+        "attributes": [],
+        "category": "guardrail",
+        "category_profile": null,
+        "data": {
+          "kind": "tool_conditional_execution",
+          "target_name": "shell"
+        },
+        "data_schema": null,
+        "kind": "scope",
+        "metadata": null,
+        "name": "block-destructive",
+        "parent_uuid": "01a1c7b2-5a8a-7803-b475-d4ea32235199",
+        "propagation_root_uuid": "01a1c7b2-5a8a-7803-b475-d4ea32235199",
+        "scope_category": "start",
+        "timestamp": "2026-11-10T23:01:57.016245+00:00",
+        "uuid": "01a1c7b2-5a98-7220-8a0c-f0429242fb92"
+      },
+      {
+        "atof_version": "0.1",
+        "attributes": [],
+        "category": "guardrail",
+        "category_profile": null,
+        "data": {
+          "allowed": false,
+          "rejected": true,
+          "rejection_reason": "Blocked by policy: destructive shell command"
+        },
+        "data_schema": null,
+        "kind": "scope",
+        "metadata": null,
+        "name": "block-destructive",
+        "parent_uuid": "01a1c7b2-5a8a-7803-b475-d4ea32235199",
+        "propagation_root_uuid": "01a1c7b2-5a8a-7803-b475-d4ea32235199",
+        "scope_category": "end",
+        "timestamp": "2026-11-10T23:01:57.016440+00:00",
+        "uuid": "01a1c7b2-5a98-7220-8a0c-f0429242fb92"
+      },
+      {
+        "atof_version": "0.1",
+        "category": null,
+        "category_profile": null,
+        "data": {
+          "rejected": true,
+          "rejection_reason": "Blocked by policy: destructive shell command"
+        },
+        "data_schema": null,
+        "kind": "mark",
+        "metadata": null,
+        "name": "shell",
+        "parent_uuid": "01a1c7b2-5a8a-7803-b475-d4ea32235199",
+        "propagation_root_uuid": "01a1c7b2-5a8a-7803-b475-d4ea32235199",
+        "timestamp": "2026-11-10T23:01:57.016448+00:00",
+        "uuid": "01a1c7b2-5a98-7220-8a0c-f0605d14998f"
+      },
+      {
+        "atof_version": "0.1",
+        "category": null,
+        "category_profile": null,
+        "data": {
+          "error": "RuntimeError",
+          "msg": "guardrail rejected: Blocked by policy: destructive shell command"
+        },
+        "data_schema": null,
+        "kind": "mark",
+        "metadata": null,
+        "name": "tool_blocked",
+        "parent_uuid": "01a1c7b2-5a8a-7803-b475-d4ea32235199",
+        "propagation_root_uuid": "01a1c7b2-5a8a-7803-b475-d4ea32235199",
+        "timestamp": "2026-11-10T23:01:57.016780+00:00",
+        "uuid": "01a1c7b2-5a98-7220-8a0c-f08d08dbcef0"
+      },
+      {
+        "atof_version": "0.1",
+        "attributes": [],
+        "category": "agent",
+        "category_profile": null,
+        "data": null,
+        "data_schema": null,
+        "kind": "scope",
+        "metadata": null,
+        "name": "alice-personal/researcher",
+        "parent_uuid": "01a1c7b2-5a8a-7803-b475-d4ea32235199",
+        "propagation_root_uuid": "01a1c7b2-5a8a-7803-b475-d4ea32235199",
+        "scope_category": "start",
+        "timestamp": "2026-11-10T23:01:57.016798+00:00",
+        "uuid": "01a1c7b2-5a98-7220-8a0c-f096119aca11"
+      },
+      {
+        "atof_version": "0.1",
+        "attributes": [],
+        "category": "guardrail",
+        "category_profile": null,
+        "data": {
+          "kind": "tool_conditional_execution",
+          "target_name": "web_search"
+        },
+        "data_schema": null,
+        "kind": "scope",
+        "metadata": null,
+        "name": "block-destructive",
+        "parent_uuid": "01a1c7b2-5a98-7220-8a0c-f096119aca11",
+        "propagation_root_uuid": "01a1c7b2-5a8a-7803-b475-d4ea32235199",
+        "scope_category": "start",
+        "timestamp": "2026-11-10T23:01:57.016827+00:00",
+        "uuid": "01a1c7b2-5a98-7220-8a0c-f0a9663b4809"
+      },
+      {
+        "atof_version": "0.1",
+        "attributes": [],
+        "category": "guardrail",
+        "category_profile": null,
+        "data": {
+          "allowed": true,
+          "rejected": false
+        },
+        "data_schema": null,
+        "kind": "scope",
+        "metadata": null,
+        "name": "block-destructive",
+        "parent_uuid": "01a1c7b2-5a98-7220-8a0c-f096119aca11",
+        "propagation_root_uuid": "01a1c7b2-5a8a-7803-b475-d4ea32235199",
+        "scope_category": "end",
+        "timestamp": "2026-11-10T23:01:57.017184+00:00",
+        "uuid": "01a1c7b2-5a98-7220-8a0c-f0a9663b4809"
+      },
+      {
+        "atof_version": "0.1",
+        "attributes": [],
+        "category": "tool",
+        "category_profile": {},
+        "data": {
+          "q": "bob smith card dispute"
+        },
+        "data_schema": null,
+        "kind": "scope",
+        "metadata": null,
+        "name": "web_search",
+        "parent_uuid": "01a1c7b2-5a98-7220-8a0c-f096119aca11",
+        "propagation_root_uuid": "01a1c7b2-5a8a-7803-b475-d4ea32235199",
+        "scope_category": "start",
+        "timestamp": "2026-11-10T23:01:57.017196+00:00",
+        "uuid": "01a1c7b2-5a99-7602-a56a-90c276b0392d"
+      },
+      {
+        "atof_version": "0.1",
+        "attributes": [],
+        "category": "tool",
+        "category_profile": {},
+        "data": {
+          "results": [
+            "https://example.com/a"
+          ]
+        },
+        "data_schema": null,
+        "kind": "scope",
+        "metadata": {
+          "otel.status_code": "OK"
+        },
+        "name": "web_search",
+        "parent_uuid": "01a1c7b2-5a98-7220-8a0c-f096119aca11",
+        "propagation_root_uuid": "01a1c7b2-5a8a-7803-b475-d4ea32235199",
+        "scope_category": "end",
+        "timestamp": "2026-11-10T23:01:57.028376+00:00",
+        "uuid": "01a1c7b2-5a99-7602-a56a-90c276b0392d"
+      },
+      {
+        "atof_version": "0.1",
+        "attributes": [],
+        "category": "llm",
+        "category_profile": {
+          "annotated_request": {
+            "api_specific": {
+              "api": "openai_chat"
+            },
+            "messages": [
+              {
+                "content": "Research card dispute rules for [REDACTED]",
+                "role": "user"
+              }
+            ],
+            "model": "mock-model-1"
+          },
+          "model_name": "mock-model-1"
+        },
+        "data": {
+          "content": {
+            "messages": [
+              {
+                "content": "Research card dispute rules for [REDACTED]",
+                "role": "user"
+              }
+            ],
+            "model": "mock-model-1"
+          },
+          "headers": {
+            "x-dynamo-parent-session-id": "alice-personal",
+            "x-dynamo-session-id": "alice-personal/researcher"
+          }
+        },
+        "data_schema": null,
+        "kind": "scope",
+        "metadata": null,
+        "name": "researcher-llm",
+        "parent_uuid": "01a1c7b2-5a98-7220-8a0c-f096119aca11",
+        "propagation_root_uuid": "01a1c7b2-5a8a-7803-b475-d4ea32235199",
+        "scope_category": "start",
+        "timestamp": "2026-11-10T23:01:57.028567+00:00",
+        "uuid": "01a1c7b2-5aa4-7860-8c03-03f74072f195"
+      },
+      {
+        "atof_version": "0.1",
+        "attributes": [],
+        "category": "llm",
+        "category_profile": {
+          "model_name": "mock-model-1"
+        },
+        "data": {
+          "choices": [
+            {
+              "finish_reason": "stop",
+              "index": 0,
+              "message": {
+                "content": "[alice-personal/sub] Bob emailed about card [REDACTED].",
+                "role": "assistant"
+              }
+            }
+          ],
+          "id": "chatcmpl-alice-personal/sub",
+          "model": "mock-model-1",
+          "object": "chat.completion",
+          "usage": {
+            "completion_tokens": 30,
+            "prompt_tokens": 120,
+            "total_tokens": 150
+          }
+        },
+        "data_schema": null,
+        "kind": "scope",
+        "metadata": {
+          "otel.status_code": "OK"
+        },
+        "name": "researcher-llm",
+        "parent_uuid": "01a1c7b2-5a98-7220-8a0c-f096119aca11",
+        "propagation_root_uuid": "01a1c7b2-5a8a-7803-b475-d4ea32235199",
+        "scope_category": "end",
+        "timestamp": "2026-11-10T23:01:57.034565+00:00",
+        "uuid": "01a1c7b2-5aa4-7860-8c03-03f74072f195"
+      },
+      {
+        "atof_version": "0.1",
+        "attributes": [],
+        "category": "agent",
+        "category_profile": null,
+        "data": null,
+        "data_schema": null,
+        "kind": "scope",
+        "metadata": {
+          "otel.status_code": "OK"
+        },
+        "name": "alice-personal/researcher",
+        "parent_uuid": "01a1c7b2-5a8a-7803-b475-d4ea32235199",
+        "propagation_root_uuid": "01a1c7b2-5a8a-7803-b475-d4ea32235199",
+        "scope_category": "end",
+        "timestamp": "2026-11-10T23:01:57.034772+00:00",
+        "uuid": "01a1c7b2-5a98-7220-8a0c-f096119aca11"
+      },
+      {
+        "atof_version": "0.1",
+        "attributes": [],
+        "category": "agent",
+        "category_profile": null,
+        "data": null,
+        "data_schema": null,
+        "kind": "scope",
+        "metadata": {
+          "declared_owner": "alice",
+          "otel.status_code": "OK"
+        },
+        "name": "alice-personal",
+        "parent_uuid": "01a1c7b2-5a8a-7803-b475-d4c7663df8a4",
+        "propagation_root_uuid": "01a1c7b2-5a8a-7803-b475-d4ea32235199",
+        "scope_category": "end",
+        "timestamp": "2026-11-10T23:01:57.034793+00:00",
+        "uuid": "01a1c7b2-5a8a-7803-b475-d4ea32235199"
+      }
+    ]
+  },
+  "final_metrics": {
+    "total_completion_tokens": 30,
+    "total_prompt_tokens": 120,
+    "total_steps": 3
+  },
+  "schema_version": "ATIF-v1.7",
+  "session_id": "01a1c7b2-5a8a-7803-b475-d4ea32235199",
+  "steps": [
+    {
+      "extra": {
+        "ancestry": {
+          "function_id": "01a1c7b2-5a8d-7ee0-9813-faf7fb58535e",
+          "function_name": "planner",
+          "parent_id": "01a1c7b2-5a8a-7803-b475-d4ea32235199",
+          "parent_name": "alice-personal"
+        },
+        "llm_request": {
+          "messages": [
+            {
+              "content": "Summarize my inbox. Reply to [REDACTED] about card [REDACTED]and call me at 415-555-0199.",
+              "role": "user"
+            }
+          ],
+          "model": "mock-model-1"
+        }
+      },
+      "message": "Summarize my inbox. Reply to [REDACTED] about card [REDACTED]and call me at 415-555-0199.",
+      "source": "user",
+      "step_id": 1,
+      "timestamp": "2026-11-10T23:01:57.006954+00:00"
+    },
+    {
+      "extra": {
+        "ancestry": {
+          "function_id": "01a1c7b2-5a8d-7ee0-9813-faf7fb58535e",
+          "function_name": "planner",
+          "parent_id": "01a1c7b2-5a8a-7803-b475-d4ea32235199",
+          "parent_name": "alice-personal"
+        },
+        "invocation": {
+          "end_timestamp": 1794351717.014,
+          "framework": "nemo_relay",
+          "invocation_id": "01a1c7b2-5a8d-7ee0-9813-faf7fb58535e",
+          "start_timestamp": 1794351717.006,
+          "status": "completed"
+        },
+        "llm_response": {
+          "choices": [
+            {
+              "finish_reason": "stop",
+              "index": 0,
+              "message": {
+                "content": "[alice-personal] Bob emailed about card [REDACTED].",
+                "role": "assistant"
+              }
+            }
+          ],
+          "id": "chatcmpl-alice-personal",
+          "model": "mock-model-1",
+          "object": "chat.completion",
+          "usage": {
+            "completion_tokens": 30,
+            "prompt_tokens": 120,
+            "total_tokens": 150
+          }
+        },
+        "tool_ancestry": [
+          {
+            "function_id": "01a1c7b2-5a97-7792-b0c3-4492044577c6",
+            "function_name": "read_email",
+            "parent_id": "01a1c7b2-5a8a-7803-b475-d4ea32235199",
+            "parent_name": "alice-personal"
+          }
+        ],
+        "tool_invocations": [
+          {
+            "end_timestamp": 1794351717.016,
+            "framework": "nemo_relay",
+            "invocation_id": "01a1c7b2-5a97-7792-b0c3-4492044577c6",
+            "start_timestamp": 1794351717.015,
+            "status": "completed"
+          }
+        ]
+      },
+      "llm_call_count": 1,
+      "message": "[alice-personal] Bob emailed about card [REDACTED].",
+      "metrics": {
+        "completion_tokens": 30,
+        "extra": {
+          "total_tokens": 150
+        },
+        "prompt_tokens": 120
+      },
+      "model_name": "mock-model-1",
+      "observation": {
+        "results": [
+          {
+            "extra": {
+              "event_name": "read_email",
+              "event_uuid": "01a1c7b2-5a97-7792-b0c3-4492044577c6",
+              "metadata": {
+                "otel.status_code": "OK"
+              },
+              "parent_event_uuid": "01a1c7b2-5a8a-7803-b475-d4ea32235199",
+              "tool_result": {
+                "messages": [
+                  {
+                    "from": "[REDACTED]",
+                    "subject": "Q3 card statement"
+                  }
+                ]
+              }
+            },
+            "source_call_id": "01a1c7b2-5a97-7792-b0c3-4492044577c6"
+          }
+        ]
+      },
+      "source": "agent",
+      "step_id": 2,
+      "timestamp": "2026-11-10T23:01:57.014380+00:00",
+      "tool_calls": [
+        {
+          "arguments": {
+            "folder": "inbox",
+            "reply_to": "[REDACTED]"
+          },
+          "extra": {
+            "event_name": "read_email",
+            "event_uuid": "01a1c7b2-5a97-7792-b0c3-4492044577c6",
+            "parent_event_uuid": "01a1c7b2-5a8a-7803-b475-d4ea32235199"
+          },
+          "function_name": "read_email",
+          "tool_call_id": "01a1c7b2-5a97-7792-b0c3-4492044577c6"
+        }
+      ]
+    },
+    {
+      "llm_call_count": 0,
+      "message": "",
+      "observation": {
+        "results": [
+          {
+            "extra": {
+              "event_name": "alice-personal/researcher",
+              "event_uuid": "01a1c7b2-5a98-7220-8a0c-f096119aca11",
+              "parent_event_uuid": "01a1c7b2-5a8a-7803-b475-d4ea32235199"
+            },
+            "source_call_id": "subagent:01a1c7b2-5a98-7220-8a0c-f096119aca11",
+            "subagent_trajectory_ref": [
+              {
+                "extra": {
+                  "name": "alice-personal/researcher",
+                  "scope_uuid": "01a1c7b2-5a98-7220-8a0c-f096119aca11"
+                },
+                "trajectory_id": "01a1c7b2-5a98-7220-8a0c-f096119aca11"
+              }
+            ]
+          }
+        ]
+      },
+      "source": "agent",
+      "step_id": 3,
+      "timestamp": "2026-11-10T23:01:57.016798+00:00",
+      "tool_calls": [
+        {
+          "arguments": {
+            "name": "alice-personal/researcher"
+          },
+          "extra": {
+            "event_name": "alice-personal/researcher",
+            "event_uuid": "01a1c7b2-5a98-7220-8a0c-f096119aca11",
+            "parent_event_uuid": "01a1c7b2-5a8a-7803-b475-d4ea32235199"
+          },
+          "function_name": "alice-personal/researcher",
+          "tool_call_id": "subagent:01a1c7b2-5a98-7220-8a0c-f096119aca11"
+        }
+      ]
+    }
+  ],
+  "subagent_trajectories": [
+    {
+      "agent": {
+        "model_name": "unknown",
+        "name": "fleet-lab",
+        "version": "0.11.1"
+      },
+      "final_metrics": {
+        "total_completion_tokens": 30,
+        "total_prompt_tokens": 120,
+        "total_steps": 3
+      },
+      "schema_version": "ATIF-v1.7",
+      "session_id": "01a1c7b2-5a8a-7803-b475-d4ea32235199",
+      "steps": [
+        {
+          "message": "",
+          "observation": {
+            "results": [
+              {
+                "extra": {
+                  "event_name": "web_search",
+                  "event_uuid": "01a1c7b2-5a99-7602-a56a-90c276b0392d",
+                  "metadata": {
+                    "otel.status_code": "OK"
+                  },
+                  "parent_event_uuid": "01a1c7b2-5a98-7220-8a0c-f096119aca11",
+                  "tool_result": {
+                    "results": [
+                      "https://example.com/a"
+                    ]
+                  }
+                }
+              }
+            ]
+          },
+          "source": "system",
+          "step_id": 1,
+          "timestamp": "2026-11-10T23:01:57.028376+00:00"
+        },
+        {
+          "extra": {
+            "ancestry": {
+              "function_id": "01a1c7b2-5aa4-7860-8c03-03f74072f195",
+              "function_name": "researcher-llm",
+              "parent_id": "01a1c7b2-5a98-7220-8a0c-f096119aca11",
+              "parent_name": "alice-personal/researcher"
+            },
+            "llm_request": {
+              "messages": [
+                {
+                  "content": "Research card dispute rules for [REDACTED]",
+                  "role": "user"
+                }
+              ],
+              "model": "mock-model-1"
+            }
+          },
+          "message": "Research card dispute rules for [REDACTED]",
+          "source": "user",
+          "step_id": 2,
+          "timestamp": "2026-11-10T23:01:57.028567+00:00"
+        },
+        {
+          "extra": {
+            "ancestry": {
+              "function_id": "01a1c7b2-5aa4-7860-8c03-03f74072f195",
+              "function_name": "researcher-llm",
+              "parent_id": "01a1c7b2-5a98-7220-8a0c-f096119aca11",
+              "parent_name": "alice-personal/researcher"
+            },
+            "invocation": {
+              "end_timestamp": 1794351717.034,
+              "framework": "nemo_relay",
+              "invocation_id": "01a1c7b2-5aa4-7860-8c03-03f74072f195",
+              "start_timestamp": 1794351717.028,
+              "status": "completed"
+            },
+            "llm_response": {
+              "choices": [
+                {
+                  "finish_reason": "stop",
+                  "index": 0,
+                  "message": {
+                    "content": "[alice-personal/sub] Bob emailed about card [REDACTED].",
+                    "role": "assistant"
+                  }
+                }
+              ],
+              "id": "chatcmpl-alice-personal/sub",
+              "model": "mock-model-1",
+              "object": "chat.completion",
+              "usage": {
+                "completion_tokens": 30,
+                "prompt_tokens": 120,
+                "total_tokens": 150
+              }
+            }
+          },
+          "llm_call_count": 1,
+          "message": "[alice-personal/sub] Bob emailed about card [REDACTED].",
+          "metrics": {
+            "completion_tokens": 30,
+            "extra": {
+              "total_tokens": 150
+            },
+            "prompt_tokens": 120
+          },
+          "model_name": "mock-model-1",
+          "source": "agent",
+          "step_id": 3,
+          "timestamp": "2026-11-10T23:01:57.034565+00:00"
+        }
+      ],
+      "trajectory_id": "01a1c7b2-5a98-7220-8a0c-f096119aca11"
+    }
+  ],
+  "trajectory_id": "01a1c7b2-5a8a-7803-b475-d4ea32235199"
+}

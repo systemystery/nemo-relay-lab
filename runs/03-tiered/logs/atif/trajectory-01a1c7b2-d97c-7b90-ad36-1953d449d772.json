@@ -1,0 +1,541 @@
+{
+  "agent": {
+    "model_name": "unknown",
+    "name": "fleet-lab",
+    "version": "0.11.1"
+  },
+  "extra": {
+    "nemo_relay": {
+      "session_instance_id": "01a1c7b2-d97c-7b90-ad36-1953d449d772"
+    },
+    "observed_events": [
+      {
+        "atof_version": "0.1",
+        "attributes": [],
+        "category": "agent",
+        "category_profile": null,
+        "data": null,
+        "data_schema": null,
+        "kind": "scope",
+        "metadata": {
+          "declared_owner": "alice"
+        },
+        "name": "alice-personal",
+        "parent_uuid": "01a1c7b2-d97c-7b90-ad36-19339188fbe5",
+        "propagation_root_uuid": "01a1c7b2-d97c-7b90-ad36-1953d449d772",
+        "scope_category": "start",
+        "timestamp": "2026-11-10T23:02:29.500292+00:00",
+        "uuid": "01a1c7b2-d97c-7b90-ad36-1953d449d772"
+      },
+      {
+        "atof_version": "0.1",
+        "category": null,
+        "category_profile": null,
+        "data": null,
+        "data_schema": null,
+        "kind": "mark",
+        "metadata": {
+          "relay.deployment_unit": "personal",
+          "relay.owner": "alice",
+          "relay.privacy_tier": "L2"
+        },
+        "name": "session_start",
+        "parent_uuid": "01a1c7b2-d97c-7b90-ad36-1953d449d772",
+        "propagation_root_uuid": "01a1c7b2-d97c-7b90-ad36-1953d449d772",
+        "timestamp": "2026-11-10T23:02:29.500733+00:00",
+        "uuid": "01a1c7b2-d97c-7b90-ad36-197ddfe7a229"
+      },
+      {
+        "atof_version": "0.1",
+        "attributes": [],
+        "category": "llm",
+        "category_profile": {
+          "annotated_request": {
+            "api_specific": {
+              "api": "openai_chat"
+            },
+            "messages": [
+              {
+                "content": "Summarize my inbox. Reply to [REDACTED] about card [REDACTED]and call me at 415-555-0199.",
+                "role": "user"
+              }
+            ],
+            "model": "mock-model-1"
+          },
+          "model_name": "mock-model-1"
+        },
+        "data": null,
+        "data_schema": null,
+        "kind": "scope",
+        "metadata": {
+          "relay.deployment_unit": "personal",
+          "relay.owner": "alice",
+          "relay.privacy_tier": "L2"
+        },
+        "name": "planner",
+        "parent_uuid": "01a1c7b2-d97c-7b90-ad36-1953d449d772",
+        "propagation_root_uuid": "01a1c7b2-d97c-7b90-ad36-1953d449d772",
+        "scope_category": "start",
+        "timestamp": "2026-11-10T23:02:29.500823+00:00",
+        "uuid": "01a1c7b2-d97c-7b90-ad36-19a5d2d30b53"
+      },
+      {
+        "atof_version": "0.1",
+        "attributes": [],
+        "category": "llm",
+        "category_profile": {
+          "model_name": "mock-model-1"
+        },
+        "data": null,
+        "data_schema": null,
+        "kind": "scope",
+        "metadata": {
+          "otel.status_code": "OK",
+          "relay.deployment_unit": "personal",
+          "relay.owner": "alice",
+          "relay.privacy_tier": "L2"
+        },
+        "name": "planner",
+        "parent_uuid": "01a1c7b2-d97c-7b90-ad36-1953d449d772",
+        "propagation_root_uuid": "01a1c7b2-d97c-7b90-ad36-1953d449d772",
+        "scope_category": "end",
+        "timestamp": "2026-11-10T23:02:29.506558+00:00",
+        "uuid": "01a1c7b2-d97c-7b90-ad36-19a5d2d30b53"
+      },
+      {
+        "atof_version": "0.1",
+        "attributes": [],
+        "category": "guardrail",
+        "category_profile": null,
+        "data": null,
+        "data_schema": null,
+        "kind": "scope",
+        "metadata": {
+          "relay.deployment_unit": "personal",
+          "relay.owner": "alice",
+          "relay.privacy_tier": "L2"
+        },
+        "name": "block-destructive",
+        "parent_uuid": "01a1c7b2-d97c-7b90-ad36-1953d449d772",
+        "propagation_root_uuid": "01a1c7b2-d97c-7b90-ad36-1953d449d772",
+        "scope_category": "start",
+        "timestamp": "2026-11-10T23:02:29.506718+00:00",
+        "uuid": "01a1c7b2-d982-7c72-85c0-8fcadd1b02f2"
+      },
+      {
+        "atof_version": "0.1",
+        "attributes": [],
+        "category": "guardrail",
+        "category_profile": null,
+        "data": null,
+        "data_schema": null,
+        "kind": "scope",
+        "metadata": {
+          "relay.deployment_unit": "personal",
+          "relay.owner": "alice",
+          "relay.privacy_tier": "L2"
+        },
+        "name": "block-destructive",
+        "parent_uuid": "01a1c7b2-d97c-7b90-ad36-1953d449d772",
+        "propagation_root_uuid": "01a1c7b2-d97c-7b90-ad36-1953d449d772",
+        "scope_category": "end",
+        "timestamp": "2026-11-10T23:02:29.506975+00:00",
+        "uuid": "01a1c7b2-d982-7c72-85c0-8fcadd1b02f2"
+      },
+      {
+        "atof_version": "0.1",
+        "attributes": [],
+        "category": "tool",
+        "category_profile": {},
+        "data": null,
+        "data_schema": null,
+        "kind": "scope",
+        "metadata": {
+          "relay.deployment_unit": "personal",
+          "relay.owner": "alice",
+          "relay.privacy_tier": "L2"
+        },
+        "name": "read_email",
+        "parent_uuid": "01a1c7b2-d97c-7b90-ad36-1953d449d772",
+        "propagation_root_uuid": "01a1c7b2-d97c-7b90-ad36-1953d449d772",
+        "scope_category": "start",
+        "timestamp": "2026-11-10T23:02:29.506990+00:00",
+        "uuid": "01a1c7b2-d982-7c72-85c0-8fe69546c8fe"
+      },
+      {
+        "atof_version": "0.1",
+        "attributes": [],
+        "category": "tool",
+        "category_profile": {},
+        "data": null,
+        "data_schema": null,
+        "kind": "scope",
+        "metadata": {
+          "otel.status_code": "OK",
+          "relay.deployment_unit": "personal",
+          "relay.owner": "alice",
+          "relay.privacy_tier": "L2"
+        },
+        "name": "read_email",
+        "parent_uuid": "01a1c7b2-d97c-7b90-ad36-1953d449d772",
+        "propagation_root_uuid": "01a1c7b2-d97c-7b90-ad36-1953d449d772",
+        "scope_category": "end",
+        "timestamp": "2026-11-10T23:02:29.507256+00:00",
+        "uuid": "01a1c7b2-d982-7c72-85c0-8fe69546c8fe"
+      },
+      {
+        "atof_version": "0.1",
+        "attributes": [],
+        "category": "guardrail",
+        "category_profile": null,
+        "data": null,
+        "data_schema": null,
+        "kind": "scope",
+        "metadata": {
+          "relay.deployment_unit": "personal",
+          "relay.owner": "alice",
+          "relay.privacy_tier": "L2"
+        },
+        "name": "block-destructive",
+        "parent_uuid": "01a1c7b2-d97c-7b90-ad36-1953d449d772",
+        "propagation_root_uuid": "01a1c7b2-d97c-7b90-ad36-1953d449d772",
+        "scope_category": "start",
+        "timestamp": "2026-11-10T23:02:29.507383+00:00",
+        "uuid": "01a1c7b2-d983-7652-8e3b-ae6717fa0042"
+      },
+      {
+        "atof_version": "0.1",
+        "attributes": [],
+        "category": "guardrail",
+        "category_profile": null,
+        "data": null,
+        "data_schema": null,
+        "kind": "scope",
+        "metadata": {
+          "relay.deployment_unit": "personal",
+          "relay.owner": "alice",
+          "relay.privacy_tier": "L2"
+        },
+        "name": "block-destructive",
+        "parent_uuid": "01a1c7b2-d97c-7b90-ad36-1953d449d772",
+        "propagation_root_uuid": "01a1c7b2-d97c-7b90-ad36-1953d449d772",
+        "scope_category": "end",
+        "timestamp": "2026-11-10T23:02:29.507665+00:00",
+        "uuid": "01a1c7b2-d983-7652-8e3b-ae6717fa0042"
+      },
+      {
+        "atof_version": "0.1",
+        "category": null,
+        "category_profile": null,
+        "data": null,
+        "data_schema": null,
+        "kind": "mark",
+        "metadata": {
+          "relay.deployment_unit": "personal",
+          "relay.owner": "alice",
+          "relay.privacy_tier": "L2"
+        },
+        "name": "shell",
+        "parent_uuid": "01a1c7b2-d97c-7b90-ad36-1953d449d772",
+        "propagation_root_uuid": "01a1c7b2-d97c-7b90-ad36-1953d449d772",
+        "timestamp": "2026-11-10T23:02:29.507670+00:00",
+        "uuid": "01a1c7b2-d983-7652-8e3b-ae81f657a403"
+      },
+      {
+        "atof_version": "0.1",
+        "category": null,
+        "category_profile": null,
+        "data": null,
+        "data_schema": null,
+        "kind": "mark",
+        "metadata": {
+          "relay.deployment_unit": "personal",
+          "relay.owner": "alice",
+          "relay.privacy_tier": "L2"
+        },
+        "name": "tool_blocked",
+        "parent_uuid": "01a1c7b2-d97c-7b90-ad36-1953d449d772",
+        "propagation_root_uuid": "01a1c7b2-d97c-7b90-ad36-1953d449d772",
+        "timestamp": "2026-11-10T23:02:29.507783+00:00",
+        "uuid": "01a1c7b2-d983-7652-8e3b-aea76724ef91"
+      },
+      {
+        "atof_version": "0.1",
+        "attributes": [],
+        "category": "agent",
+        "category_profile": null,
+        "data": null,
+        "data_schema": null,
+        "kind": "scope",
+        "metadata": {
+          "relay.deployment_unit": "personal",
+          "relay.owner": "alice",
+          "relay.privacy_tier": "L2"
+        },
+        "name": "alice-personal/researcher",
+        "parent_uuid": "01a1c7b2-d97c-7b90-ad36-1953d449d772",
+        "propagation_root_uuid": "01a1c7b2-d97c-7b90-ad36-1953d449d772",
+        "scope_category": "start",
+        "timestamp": "2026-11-10T23:02:29.507796+00:00",
+        "uuid": "01a1c7b2-d983-7652-8e3b-aeb3483136d8"
+      },
+      {
+        "atof_version": "0.1",
+        "attributes": [],
+        "category": "guardrail",
+        "category_profile": null,
+        "data": null,
+        "data_schema": null,
+        "kind": "scope",
+        "metadata": {
+          "relay.deployment_unit": "personal",
+          "relay.owner": "alice",
+          "relay.privacy_tier": "L2"
+        },
+        "name": "block-destructive",
+        "parent_uuid": "01a1c7b2-d983-7652-8e3b-aeb3483136d8",
+        "propagation_root_uuid": "01a1c7b2-d97c-7b90-ad36-1953d449d772",
+        "scope_category": "start",
+        "timestamp": "2026-11-10T23:02:29.507824+00:00",
+        "uuid": "01a1c7b2-d983-7652-8e3b-aeccea95904f"
+      },
+      {
+        "atof_version": "0.1",
+        "attributes": [],
+        "category": "guardrail",
+        "category_profile": null,
+        "data": null,
+        "data_schema": null,
+        "kind": "scope",
+        "metadata": {
+          "relay.deployment_unit": "personal",
+          "relay.owner": "alice",
+          "relay.privacy_tier": "L2"
+        },
+        "name": "block-destructive",
+        "parent_uuid": "01a1c7b2-d983-7652-8e3b-aeb3483136d8",
+        "propagation_root_uuid": "01a1c7b2-d97c-7b90-ad36-1953d449d772",
+        "scope_category": "end",
+        "timestamp": "2026-11-10T23:02:29.508096+00:00",
+        "uuid": "01a1c7b2-d983-7652-8e3b-aeccea95904f"
+      },
+      {
+        "atof_version": "0.1",
+        "attributes": [],
+        "category": "tool",
+        "category_profile": {},
+        "data": null,
+        "data_schema": null,
+        "kind": "scope",
+        "metadata": {
+          "relay.deployment_unit": "personal",
+          "relay.owner": "alice",
+          "relay.privacy_tier": "L2"
+        },
+        "name": "web_search",
+        "parent_uuid": "01a1c7b2-d983-7652-8e3b-aeb3483136d8",
+        "propagation_root_uuid": "01a1c7b2-d97c-7b90-ad36-1953d449d772",
+        "scope_category": "start",
+        "timestamp": "2026-11-10T23:02:29.508106+00:00",
+        "uuid": "01a1c7b2-d984-79d3-93a3-939558e6cf67"
+      },
+      {
+        "atof_version": "0.1",
+        "attributes": [],
+        "category": "tool",
+        "category_profile": {},
+        "data": null,
+        "data_schema": null,
+        "kind": "scope",
+        "metadata": {
+          "otel.status_code": "OK",
+          "relay.deployment_unit": "personal",
+          "relay.owner": "alice",
+          "relay.privacy_tier": "L2"
+        },
+        "name": "web_search",
+        "parent_uuid": "01a1c7b2-d983-7652-8e3b-aeb3483136d8",
+        "propagation_root_uuid": "01a1c7b2-d97c-7b90-ad36-1953d449d772",
+        "scope_category": "end",
+        "timestamp": "2026-11-10T23:02:29.519111+00:00",
+        "uuid": "01a1c7b2-d984-79d3-93a3-939558e6cf67"
+      },
+      {
+        "atof_version": "0.1",
+        "attributes": [],
+        "category": "llm",
+        "category_profile": {
+          "annotated_request": {
+            "api_specific": {
+              "api": "openai_chat"
+            },
+            "messages": [
+              {
+                "content": "Research card dispute rules for [REDACTED]",
+                "role": "user"
+              }
+            ],
+            "model": "mock-model-1"
+          },
+          "model_name": "mock-model-1"
+        },
+        "data": null,
+        "data_schema": null,
+        "kind": "scope",
+        "metadata": {
+          "relay.deployment_unit": "personal",
+          "relay.owner": "alice",
+          "relay.privacy_tier": "L2"
+        },
+        "name": "researcher-llm",
+        "parent_uuid": "01a1c7b2-d983-7652-8e3b-aeb3483136d8",
+        "propagation_root_uuid": "01a1c7b2-d97c-7b90-ad36-1953d449d772",
+        "scope_category": "start",
+        "timestamp": "2026-11-10T23:02:29.519344+00:00",
+        "uuid": "01a1c7b2-d98f-76d0-b85c-c7490a31353c"
+      },
+      {
+        "atof_version": "0.1",
+        "attributes": [],
+        "category": "llm",
+        "category_profile": {
+          "model_name": "mock-model-1"
+        },
+        "data": null,
+        "data_schema": null,
+        "kind": "scope",
+        "metadata": {
+          "otel.status_code": "OK",
+          "relay.deployment_unit": "personal",
+          "relay.owner": "alice",
+          "relay.privacy_tier": "L2"
+        },
+        "name": "researcher-llm",
+        "parent_uuid": "01a1c7b2-d983-7652-8e3b-aeb3483136d8",
+        "propagation_root_uuid": "01a1c7b2-d97c-7b90-ad36-1953d449d772",
+        "scope_category": "end",
+        "timestamp": "2026-11-10T23:02:29.525207+00:00",
+        "uuid": "01a1c7b2-d98f-76d0-b85c-c7490a31353c"
+      },
+      {
+        "atof_version": "0.1",
+        "attributes": [],
+        "category": "agent",
+        "category_profile": null,
+        "data": null,
+        "data_schema": null,
+        "kind": "scope",
+        "metadata": {
+          "otel.status_code": "OK",
+          "relay.deployment_unit": "personal",
+          "relay.owner": "alice",
+          "relay.privacy_tier": "L2"
+        },
+        "name": "alice-personal/researcher",
+        "parent_uuid": "01a1c7b2-d97c-7b90-ad36-1953d449d772",
+        "propagation_root_uuid": "01a1c7b2-d97c-7b90-ad36-1953d449d772",
+        "scope_category": "end",
+        "timestamp": "2026-11-10T23:02:29.525407+00:00",
+        "uuid": "01a1c7b2-d983-7652-8e3b-aeb3483136d8"
+      },
+      {
+        "atof_version": "0.1",
+        "attributes": [],
+        "category": "agent",
+        "category_profile": null,
+        "data": null,
+        "data_schema": null,
+        "kind": "scope",
+        "metadata": {
+          "declared_owner": "alice",
+          "otel.status_code": "OK",
+          "relay.deployment_unit": "personal",
+          "relay.owner": "alice",
+          "relay.privacy_tier": "L2"
+        },
+        "name": "alice-personal",
+        "parent_uuid": "01a1c7b2-d97c-7b90-ad36-19339188fbe5",
+        "propagation_root_uuid": "01a1c7b2-d97c-7b90-ad36-1953d449d772",
+        "scope_category": "end",
+        "timestamp": "2026-11-10T23:02:29.525419+00:00",
+        "uuid": "01a1c7b2-d97c-7b90-ad36-1953d449d772"
+      }
+    ]
+  },
+  "final_metrics": {
+    "total_steps": 1
+  },
+  "schema_version": "ATIF-v1.7",
+  "session_id": "01a1c7b2-d97c-7b90-ad36-1953d449d772",
+  "steps": [
+    {
+      "llm_call_count": 0,
+      "message": "",
+      "observation": {
+        "results": [
+          {
+            "extra": {
+              "event_name": "alice-personal/researcher",
+              "event_uuid": "01a1c7b2-d983-7652-8e3b-aeb3483136d8",
+              "metadata": {
+                "relay.deployment_unit": "personal",
+                "relay.owner": "alice",
+                "relay.privacy_tier": "L2"
+              },
+              "parent_event_uuid": "01a1c7b2-d97c-7b90-ad36-1953d449d772"
+            },
+            "source_call_id": "subagent:01a1c7b2-d983-7652-8e3b-aeb3483136d8",
+            "subagent_trajectory_ref": [
+              {
+                "extra": {
+                  "name": "alice-personal/researcher",
+                  "scope_uuid": "01a1c7b2-d983-7652-8e3b-aeb3483136d8"
+                },
+                "trajectory_id": "01a1c7b2-d983-7652-8e3b-aeb3483136d8"
+              }
+            ]
+          }
+        ]
+      },
+      "source": "agent",
+      "step_id": 1,
+      "timestamp": "2026-11-10T23:02:29.507796+00:00",
+      "tool_calls": [
+        {
+          "arguments": {
+            "name": "alice-personal/researcher"
+          },
+          "extra": {
+            "event_name": "alice-personal/researcher",
+            "event_uuid": "01a1c7b2-d983-7652-8e3b-aeb3483136d8",
+            "metadata": {
+              "relay.deployment_unit": "personal",
+              "relay.owner": "alice",
+              "relay.privacy_tier": "L2"
+            },
+            "parent_event_uuid": "01a1c7b2-d97c-7b90-ad36-1953d449d772"
+          },
+          "function_name": "alice-personal/researcher",
+          "tool_call_id": "subagent:01a1c7b2-d983-7652-8e3b-aeb3483136d8"
+        }
+      ]
+    }
+  ],
+  "subagent_trajectories": [
+    {
+      "agent": {
+        "model_name": "unknown",
+        "name": "fleet-lab",
+        "version": "0.11.1"
+      },
+      "final_metrics": {
+        "total_steps": 0
+      },
+      "schema_version": "ATIF-v1.7",
+      "session_id": "01a1c7b2-d97c-7b90-ad36-1953d449d772",
+      "steps": [],
+      "trajectory_id": "01a1c7b2-d983-7652-8e3b-aeb3483136d8"
+    }
+  ],
+  "trajectory_id": "01a1c7b2-d97c-7b90-ad36-1953d449d772"
+}

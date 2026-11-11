@@ -1,0 +1,50 @@
+version = 1
+
+[policy]
+unknown_component = "error"
+unknown_field = "error"
+unsupported_value = "error"
+
+[[components]]
+kind = "observability"
+enabled = true
+
+[components.config]
+version = 4
+enable_full_payloads = false
+
+[components.config.atof]
+enabled = true
+
+[[components.config.atof.sinks]]
+type = "file"
+output_directory = "logs"
+filename = "events.jsonl"
+mode = "overwrite"
+
+[components.config.atif]
+enabled = true
+agent_name = "fleet-lab"
+output_directory = "logs/atif"
+filename_template = "trajectory-{session_id}.json"
+
+[[components]]
+kind = "pii_redaction"
+enabled = true
+
+[components.config]
+version = 1
+
+[[components.config.profiles]]
+mode = "builtin"
+priority = 100
+[components.config.profiles.builtin]
+action = "redact"
+detector = "email"
+
+[[components.config.profiles]]
+mode = "builtin"
+priority = 110
+[components.config.profiles.builtin]
+action = "redact"
+detector = "credit_card"

@@ -1,0 +1,515 @@
+{
+  "agent": {
+    "model_name": "unknown",
+    "name": "fleet-lab",
+    "version": "0.11.1"
+  },
+  "extra": {
+    "nemo_relay": {
+      "session_instance_id": "01a1c7da-6998-7a32-a276-ca13ccc86890"
+    },
+    "observed_events": [
+      {
+        "atof_version": "0.1",
+        "attributes": [],
+        "category": "agent",
+        "category_profile": null,
+        "data": null,
+        "data_schema": null,
+        "kind": "scope",
+        "metadata": {
+          "eval.arm": "skill",
+          "eval.run": 1,
+          "relay.deployment_unit": "personal",
+          "relay.privacy_tier": "L2"
+        },
+        "name": "personal-agent:skill:1",
+        "parent_uuid": "01a1c7da-6945-7473-ab67-0ef3f8b37151",
+        "propagation_root_uuid": "01a1c7da-6998-7a32-a276-ca13ccc86890",
+        "scope_category": "start",
+        "timestamp": "2026-11-10T23:45:42.296314+00:00",
+        "uuid": "01a1c7da-6998-7a32-a276-ca13ccc86890"
+      },
+      {
+        "atof_version": "0.1",
+        "attributes": [],
+        "category": "llm",
+        "category_profile": {
+          "annotated_request": {
+            "api_specific": {
+              "api": "openai_chat"
+            },
+            "messages": [
+              {
+                "content": "",
+                "role": "user"
+              }
+            ],
+            "model": "small-local-model"
+          },
+          "model_name": "small-local-model"
+        },
+        "data": {
+          "content": {
+            "messages": [
+              {
+                "content": "",
+                "role": "user"
+              }
+            ],
+            "model": "small-local-model"
+          },
+          "headers": {}
+        },
+        "data_schema": null,
+        "kind": "scope",
+        "metadata": null,
+        "name": "plan",
+        "parent_uuid": "01a1c7da-6998-7a32-a276-ca13ccc86890",
+        "propagation_root_uuid": "01a1c7da-6998-7a32-a276-ca13ccc86890",
+        "scope_category": "start",
+        "timestamp": "2026-11-10T23:45:42.296436+00:00",
+        "uuid": "01a1c7da-6998-7a32-a276-ca2fd1e9da07"
+      },
+      {
+        "atof_version": "0.1",
+        "attributes": [],
+        "category": "llm",
+        "category_profile": {
+          "annotated_response": {
+            "api_specific": {
+              "api": "openai_chat"
+            },
+            "finish_reason": "complete",
+            "id": "x",
+            "message": "",
+            "model": "small-local-model",
+            "object": "chat.completion",
+            "usage": {
+              "completion_tokens": 60,
+              "prompt_tokens": 900,
+              "total_tokens": 960
+            }
+          },
+          "model_name": "small-local-model"
+        },
+        "data": {
+          "choices": [
+            {
+              "finish_reason": "stop",
+              "index": 0,
+              "message": {
+                "content": "",
+                "role": "assistant"
+              }
+            }
+          ],
+          "id": "x",
+          "model": "small-local-model",
+          "object": "chat.completion",
+          "usage": {
+            "completion_tokens": 60,
+            "prompt_tokens": 900,
+            "total_tokens": 960
+          }
+        },
+        "data_schema": null,
+        "kind": "scope",
+        "metadata": {
+          "otel.status_code": "OK"
+        },
+        "name": "plan",
+        "parent_uuid": "01a1c7da-6998-7a32-a276-ca13ccc86890",
+        "propagation_root_uuid": "01a1c7da-6998-7a32-a276-ca13ccc86890",
+        "scope_category": "end",
+        "timestamp": "2026-11-10T23:45:42.301098+00:00",
+        "uuid": "01a1c7da-6998-7a32-a276-ca2fd1e9da07"
+      },
+      {
+        "atof_version": "0.1",
+        "attributes": [],
+        "category": "tool",
+        "category_profile": {},
+        "data": {},
+        "data_schema": null,
+        "kind": "scope",
+        "metadata": null,
+        "name": "skill_view",
+        "parent_uuid": "01a1c7da-6998-7a32-a276-ca13ccc86890",
+        "propagation_root_uuid": "01a1c7da-6998-7a32-a276-ca13ccc86890",
+        "scope_category": "start",
+        "timestamp": "2026-11-10T23:45:42.301196+00:00",
+        "uuid": "01a1c7da-699d-74e2-9c6b-709348d836ac"
+      },
+      {
+        "atof_version": "0.1",
+        "category": null,
+        "category_profile": null,
+        "data": null,
+        "data_schema": null,
+        "kind": "mark",
+        "metadata": {
+          "skill_load_source": "skill_tool",
+          "tool_name": "skill_view"
+        },
+        "name": "skill.load",
+        "parent_uuid": "01a1c7da-699d-74e2-9c6b-709348d836ac",
+        "propagation_root_uuid": "01a1c7da-6998-7a32-a276-ca13ccc86890",
+        "timestamp": "2026-11-10T23:45:42.301196+00:00",
+        "uuid": "01a1c7da-699d-74e2-9c6b-70acc563ef7b"
+      },
+      {
+        "atof_version": "0.1",
+        "attributes": [],
+        "category": "tool",
+        "category_profile": {},
+        "data": {},
+        "data_schema": null,
+        "kind": "scope",
+        "metadata": {
+          "otel.status_code": "OK"
+        },
+        "name": "skill_view",
+        "parent_uuid": "01a1c7da-6998-7a32-a276-ca13ccc86890",
+        "propagation_root_uuid": "01a1c7da-6998-7a32-a276-ca13ccc86890",
+        "scope_category": "end",
+        "timestamp": "2026-11-10T23:45:42.303657+00:00",
+        "uuid": "01a1c7da-699d-74e2-9c6b-709348d836ac"
+      },
+      {
+        "atof_version": "0.1",
+        "attributes": [],
+        "category": "llm",
+        "category_profile": {
+          "annotated_request": {
+            "api_specific": {
+              "api": "openai_chat"
+            },
+            "messages": [
+              {
+                "content": "",
+                "role": "user"
+              }
+            ],
+            "model": "small-local-model"
+          },
+          "model_name": "small-local-model"
+        },
+        "data": {
+          "content": {
+            "messages": [
+              {
+                "content": "",
+                "role": "user"
+              }
+            ],
+            "model": "small-local-model"
+          },
+          "headers": {}
+        },
+        "data_schema": null,
+        "kind": "scope",
+        "metadata": null,
+        "name": "answer",
+        "parent_uuid": "01a1c7da-6998-7a32-a276-ca13ccc86890",
+        "propagation_root_uuid": "01a1c7da-6998-7a32-a276-ca13ccc86890",
+        "scope_category": "start",
+        "timestamp": "2026-11-10T23:45:42.303748+00:00",
+        "uuid": "01a1c7da-699f-76a1-85ca-fa224f53a83a"
+      },
+      {
+        "atof_version": "0.1",
+        "attributes": [],
+        "category": "llm",
+        "category_profile": {
+          "annotated_response": {
+            "api_specific": {
+              "api": "openai_chat"
+            },
+            "finish_reason": "complete",
+            "id": "x",
+            "message": "",
+            "model": "small-local-model",
+            "object": "chat.completion",
+            "usage": {
+              "completion_tokens": 90,
+              "prompt_tokens": 1300,
+              "total_tokens": 1390
+            }
+          },
+          "model_name": "small-local-model"
+        },
+        "data": {
+          "choices": [
+            {
+              "finish_reason": "stop",
+              "index": 0,
+              "message": {
+                "content": "",
+                "role": "assistant"
+              }
+            }
+          ],
+          "id": "x",
+          "model": "small-local-model",
+          "object": "chat.completion",
+          "usage": {
+            "completion_tokens": 90,
+            "prompt_tokens": 1300,
+            "total_tokens": 1390
+          }
+        },
+        "data_schema": null,
+        "kind": "scope",
+        "metadata": {
+          "otel.status_code": "OK"
+        },
+        "name": "answer",
+        "parent_uuid": "01a1c7da-6998-7a32-a276-ca13ccc86890",
+        "propagation_root_uuid": "01a1c7da-6998-7a32-a276-ca13ccc86890",
+        "scope_category": "end",
+        "timestamp": "2026-11-10T23:45:42.308384+00:00",
+        "uuid": "01a1c7da-699f-76a1-85ca-fa224f53a83a"
+      },
+      {
+        "atof_version": "0.1",
+        "category": null,
+        "category_profile": null,
+        "data": null,
+        "data_schema": null,
+        "kind": "mark",
+        "metadata": {
+          "eval.passed": false
+        },
+        "name": "eval_result",
+        "parent_uuid": "01a1c7da-6998-7a32-a276-ca13ccc86890",
+        "propagation_root_uuid": "01a1c7da-6998-7a32-a276-ca13ccc86890",
+        "timestamp": "2026-11-10T23:45:42.308503+00:00",
+        "uuid": "01a1c7da-69a4-7fa2-a548-e9b197a46f0f"
+      },
+      {
+        "atof_version": "0.1",
+        "attributes": [],
+        "category": "agent",
+        "category_profile": null,
+        "data": null,
+        "data_schema": null,
+        "kind": "scope",
+        "metadata": {
+          "eval.arm": "skill",
+          "eval.run": 1,
+          "otel.status_code": "OK",
+          "relay.deployment_unit": "personal",
+          "relay.privacy_tier": "L2"
+        },
+        "name": "personal-agent:skill:1",
+        "parent_uuid": "01a1c7da-6945-7473-ab67-0ef3f8b37151",
+        "propagation_root_uuid": "01a1c7da-6998-7a32-a276-ca13ccc86890",
+        "scope_category": "end",
+        "timestamp": "2026-11-10T23:45:42.308516+00:00",
+        "uuid": "01a1c7da-6998-7a32-a276-ca13ccc86890"
+      }
+    ]
+  },
+  "final_metrics": {
+    "total_completion_tokens": 150,
+    "total_prompt_tokens": 2200,
+    "total_steps": 4
+  },
+  "schema_version": "ATIF-v1.7",
+  "session_id": "01a1c7da-6998-7a32-a276-ca13ccc86890",
+  "steps": [
+    {
+      "extra": {
+        "ancestry": {
+          "function_id": "01a1c7da-6998-7a32-a276-ca2fd1e9da07",
+          "function_name": "plan",
+          "parent_id": "01a1c7da-6998-7a32-a276-ca13ccc86890",
+          "parent_name": "personal-agent:skill:1"
+        },
+        "llm_request": {
+          "messages": [
+            {
+              "content": "",
+              "role": "user"
+            }
+          ],
+          "model": "small-local-model"
+        }
+      },
+      "message": "",
+      "source": "user",
+      "step_id": 1,
+      "timestamp": "2026-11-10T23:45:42.296436+00:00"
+    },
+    {
+      "extra": {
+        "ancestry": {
+          "function_id": "01a1c7da-6998-7a32-a276-ca2fd1e9da07",
+          "function_name": "plan",
+          "parent_id": "01a1c7da-6998-7a32-a276-ca13ccc86890",
+          "parent_name": "personal-agent:skill:1"
+        },
+        "invocation": {
+          "end_timestamp": 1794354342.301,
+          "framework": "nemo_relay",
+          "invocation_id": "01a1c7da-6998-7a32-a276-ca2fd1e9da07",
+          "start_timestamp": 1794354342.296,
+          "status": "completed"
+        },
+        "llm_response": {
+          "choices": [
+            {
+              "finish_reason": "stop",
+              "index": 0,
+              "message": {
+                "content": "",
+                "role": "assistant"
+              }
+            }
+          ],
+          "id": "x",
+          "model": "small-local-model",
+          "object": "chat.completion",
+          "usage": {
+            "completion_tokens": 60,
+            "prompt_tokens": 900,
+            "total_tokens": 960
+          }
+        },
+        "tool_ancestry": [
+          {
+            "function_id": "01a1c7da-699d-74e2-9c6b-709348d836ac",
+            "function_name": "skill_view",
+            "parent_id": "01a1c7da-6998-7a32-a276-ca13ccc86890",
+            "parent_name": "personal-agent:skill:1"
+          }
+        ],
+        "tool_invocations": [
+          {
+            "end_timestamp": 1794354342.303,
+            "framework": "nemo_relay",
+            "invocation_id": "01a1c7da-699d-74e2-9c6b-709348d836ac",
+            "start_timestamp": 1794354342.301,
+            "status": "completed"
+          }
+        ]
+      },
+      "llm_call_count": 1,
+      "message": "",
+      "metrics": {
+        "completion_tokens": 60,
+        "extra": {
+          "total_tokens": 960
+        },
+        "prompt_tokens": 900
+      },
+      "model_name": "small-local-model",
+      "observation": {
+        "results": [
+          {
+            "extra": {
+              "event_name": "skill_view",
+              "event_uuid": "01a1c7da-699d-74e2-9c6b-709348d836ac",
+              "metadata": {
+                "otel.status_code": "OK"
+              },
+              "parent_event_uuid": "01a1c7da-6998-7a32-a276-ca13ccc86890",
+              "tool_result": {}
+            },
+            "source_call_id": "01a1c7da-699d-74e2-9c6b-709348d836ac"
+          }
+        ]
+      },
+      "source": "agent",
+      "step_id": 2,
+      "timestamp": "2026-11-10T23:45:42.301098+00:00",
+      "tool_calls": [
+        {
+          "arguments": {},
+          "extra": {
+            "event_name": "skill_view",
+            "event_uuid": "01a1c7da-699d-74e2-9c6b-709348d836ac",
+            "parent_event_uuid": "01a1c7da-6998-7a32-a276-ca13ccc86890"
+          },
+          "function_name": "skill_view",
+          "tool_call_id": "01a1c7da-699d-74e2-9c6b-709348d836ac"
+        }
+      ]
+    },
+    {
+      "extra": {
+        "ancestry": {
+          "function_id": "01a1c7da-699f-76a1-85ca-fa224f53a83a",
+          "function_name": "answer",
+          "parent_id": "01a1c7da-6998-7a32-a276-ca13ccc86890",
+          "parent_name": "personal-agent:skill:1"
+        },
+        "llm_request": {
+          "messages": [
+            {
+              "content": "",
+              "role": "user"
+            }
+          ],
+          "model": "small-local-model"
+        }
+      },
+      "message": "",
+      "source": "user",
+      "step_id": 3,
+      "timestamp": "2026-11-10T23:45:42.303748+00:00"
+    },
+    {
+      "extra": {
+        "ancestry": {
+          "function_id": "01a1c7da-699f-76a1-85ca-fa224f53a83a",
+          "function_name": "answer",
+          "parent_id": "01a1c7da-6998-7a32-a276-ca13ccc86890",
+          "parent_name": "personal-agent:skill:1"
+        },
+        "invocation": {
+          "end_timestamp": 1794354342.308,
+          "framework": "nemo_relay",
+          "invocation_id": "01a1c7da-699f-76a1-85ca-fa224f53a83a",
+          "start_timestamp": 1794354342.303,
+          "status": "completed"
+        },
+        "llm_response": {
+          "choices": [
+            {
+              "finish_reason": "stop",
+              "index": 0,
+              "message": {
+                "content": "",
+                "role": "assistant"
+              }
+            }
+          ],
+          "id": "x",
+          "model": "small-local-model",
+          "object": "chat.completion",
+          "usage": {
+            "completion_tokens": 90,
+            "prompt_tokens": 1300,
+            "total_tokens": 1390
+          }
+        }
+      },
+      "llm_call_count": 1,
+      "message": "",
+      "metrics": {
+        "completion_tokens": 90,
+        "extra": {
+          "total_tokens": 1390
+        },
+        "prompt_tokens": 1300
+      },
+      "model_name": "small-local-model",
+      "source": "agent",
+      "step_id": 4,
+      "timestamp": "2026-11-10T23:45:42.308384+00:00"
+    }
+  ],
+  "trajectory_id": "01a1c7da-6998-7a32-a276-ca13ccc86890"
+}

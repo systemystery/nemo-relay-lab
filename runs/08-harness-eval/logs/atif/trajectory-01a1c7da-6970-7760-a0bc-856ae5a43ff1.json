@@ -1,0 +1,1421 @@
+{
+  "agent": {
+    "model_name": "unknown",
+    "name": "fleet-lab",
+    "version": "0.11.1"
+  },
+  "extra": {
+    "nemo_relay": {
+      "session_instance_id": "01a1c7da-6970-7760-a0bc-856ae5a43ff1"
+    },
+    "observed_events": [
+      {
+        "atof_version": "0.1",
+        "attributes": [],
+        "category": "agent",
+        "category_profile": null,
+        "data": null,
+        "data_schema": null,
+        "kind": "scope",
+        "metadata": {
+          "eval.arm": "baseline",
+          "eval.run": 1,
+          "relay.deployment_unit": "personal",
+          "relay.privacy_tier": "L2"
+        },
+        "name": "personal-agent:baseline:1",
+        "parent_uuid": "01a1c7da-6945-7473-ab67-0ef3f8b37151",
+        "propagation_root_uuid": "01a1c7da-6970-7760-a0bc-856ae5a43ff1",
+        "scope_category": "start",
+        "timestamp": "2026-11-10T23:45:42.256868+00:00",
+        "uuid": "01a1c7da-6970-7760-a0bc-856ae5a43ff1"
+      },
+      {
+        "atof_version": "0.1",
+        "attributes": [],
+        "category": "llm",
+        "category_profile": {
+          "annotated_request": {
+            "api_specific": {
+              "api": "openai_chat"
+            },
+            "messages": [
+              {
+                "content": "",
+                "role": "user"
+              }
+            ],
+            "model": "small-local-model"
+          },
+          "model_name": "small-local-model"
+        },
+        "data": {
+          "content": {
+            "messages": [
+              {
+                "content": "",
+                "role": "user"
+              }
+            ],
+            "model": "small-local-model"
+          },
+          "headers": {}
+        },
+        "data_schema": null,
+        "kind": "scope",
+        "metadata": null,
+        "name": "plan",
+        "parent_uuid": "01a1c7da-6970-7760-a0bc-856ae5a43ff1",
+        "propagation_root_uuid": "01a1c7da-6970-7760-a0bc-856ae5a43ff1",
+        "scope_category": "start",
+        "timestamp": "2026-11-10T23:45:42.256977+00:00",
+        "uuid": "01a1c7da-6970-7760-a0bc-857303a40342"
+      },
+      {
+        "atof_version": "0.1",
+        "attributes": [],
+        "category": "llm",
+        "category_profile": {
+          "annotated_response": {
+            "api_specific": {
+              "api": "openai_chat"
+            },
+            "finish_reason": "complete",
+            "id": "x",
+            "message": "",
+            "model": "small-local-model",
+            "object": "chat.completion",
+            "usage": {
+              "completion_tokens": 60,
+              "prompt_tokens": 900,
+              "total_tokens": 960
+            }
+          },
+          "model_name": "small-local-model"
+        },
+        "data": {
+          "choices": [
+            {
+              "finish_reason": "stop",
+              "index": 0,
+              "message": {
+                "content": "",
+                "role": "assistant"
+              }
+            }
+          ],
+          "id": "x",
+          "model": "small-local-model",
+          "object": "chat.completion",
+          "usage": {
+            "completion_tokens": 60,
+            "prompt_tokens": 900,
+            "total_tokens": 960
+          }
+        },
+        "data_schema": null,
+        "kind": "scope",
+        "metadata": {
+          "otel.status_code": "OK"
+        },
+        "name": "plan",
+        "parent_uuid": "01a1c7da-6970-7760-a0bc-856ae5a43ff1",
+        "propagation_root_uuid": "01a1c7da-6970-7760-a0bc-856ae5a43ff1",
+        "scope_category": "end",
+        "timestamp": "2026-11-10T23:45:42.261596+00:00",
+        "uuid": "01a1c7da-6970-7760-a0bc-857303a40342"
+      },
+      {
+        "atof_version": "0.1",
+        "attributes": [],
+        "category": "tool",
+        "category_profile": {},
+        "data": {},
+        "data_schema": null,
+        "kind": "scope",
+        "metadata": null,
+        "name": "web_search",
+        "parent_uuid": "01a1c7da-6970-7760-a0bc-856ae5a43ff1",
+        "propagation_root_uuid": "01a1c7da-6970-7760-a0bc-856ae5a43ff1",
+        "scope_category": "start",
+        "timestamp": "2026-11-10T23:45:42.261720+00:00",
+        "uuid": "01a1c7da-6975-76c2-b9d4-1eecd6652344"
+      },
+      {
+        "atof_version": "0.1",
+        "attributes": [],
+        "category": "tool",
+        "category_profile": {},
+        "data": {},
+        "data_schema": null,
+        "kind": "scope",
+        "metadata": {
+          "otel.status_code": "OK"
+        },
+        "name": "web_search",
+        "parent_uuid": "01a1c7da-6970-7760-a0bc-856ae5a43ff1",
+        "propagation_root_uuid": "01a1c7da-6970-7760-a0bc-856ae5a43ff1",
+        "scope_category": "end",
+        "timestamp": "2026-11-10T23:45:42.263940+00:00",
+        "uuid": "01a1c7da-6975-76c2-b9d4-1eecd6652344"
+      },
+      {
+        "atof_version": "0.1",
+        "attributes": [],
+        "category": "llm",
+        "category_profile": {
+          "annotated_request": {
+            "api_specific": {
+              "api": "openai_chat"
+            },
+            "messages": [
+              {
+                "content": "",
+                "role": "user"
+              }
+            ],
+            "model": "small-local-model"
+          },
+          "model_name": "small-local-model"
+        },
+        "data": {
+          "content": {
+            "messages": [
+              {
+                "content": "",
+                "role": "user"
+              }
+            ],
+            "model": "small-local-model"
+          },
+          "headers": {}
+        },
+        "data_schema": null,
+        "kind": "scope",
+        "metadata": null,
+        "name": "read_results",
+        "parent_uuid": "01a1c7da-6970-7760-a0bc-856ae5a43ff1",
+        "propagation_root_uuid": "01a1c7da-6970-7760-a0bc-856ae5a43ff1",
+        "scope_category": "start",
+        "timestamp": "2026-11-10T23:45:42.264085+00:00",
+        "uuid": "01a1c7da-6978-7a03-8291-3fc177bfe48e"
+      },
+      {
+        "atof_version": "0.1",
+        "attributes": [],
+        "category": "llm",
+        "category_profile": {
+          "annotated_response": {
+            "api_specific": {
+              "api": "openai_chat"
+            },
+            "finish_reason": "complete",
+            "id": "x",
+            "message": "",
+            "model": "small-local-model",
+            "object": "chat.completion",
+            "usage": {
+              "completion_tokens": 120,
+              "prompt_tokens": 2400,
+              "total_tokens": 2520
+            }
+          },
+          "model_name": "small-local-model"
+        },
+        "data": {
+          "choices": [
+            {
+              "finish_reason": "stop",
+              "index": 0,
+              "message": {
+                "content": "",
+                "role": "assistant"
+              }
+            }
+          ],
+          "id": "x",
+          "model": "small-local-model",
+          "object": "chat.completion",
+          "usage": {
+            "completion_tokens": 120,
+            "prompt_tokens": 2400,
+            "total_tokens": 2520
+          }
+        },
+        "data_schema": null,
+        "kind": "scope",
+        "metadata": {
+          "otel.status_code": "OK"
+        },
+        "name": "read_results",
+        "parent_uuid": "01a1c7da-6970-7760-a0bc-856ae5a43ff1",
+        "propagation_root_uuid": "01a1c7da-6970-7760-a0bc-856ae5a43ff1",
+        "scope_category": "end",
+        "timestamp": "2026-11-10T23:45:42.268785+00:00",
+        "uuid": "01a1c7da-6978-7a03-8291-3fc177bfe48e"
+      },
+      {
+        "atof_version": "0.1",
+        "attributes": [],
+        "category": "tool",
+        "category_profile": {},
+        "data": {},
+        "data_schema": null,
+        "kind": "scope",
+        "metadata": null,
+        "name": "web_search",
+        "parent_uuid": "01a1c7da-6970-7760-a0bc-856ae5a43ff1",
+        "propagation_root_uuid": "01a1c7da-6970-7760-a0bc-856ae5a43ff1",
+        "scope_category": "start",
+        "timestamp": "2026-11-10T23:45:42.268955+00:00",
+        "uuid": "01a1c7da-697c-71e2-8e48-5bd40dd874b1"
+      },
+      {
+        "atof_version": "0.1",
+        "attributes": [],
+        "category": "tool",
+        "category_profile": {},
+        "data": {},
+        "data_schema": null,
+        "kind": "scope",
+        "metadata": {
+          "otel.status_code": "OK"
+        },
+        "name": "web_search",
+        "parent_uuid": "01a1c7da-6970-7760-a0bc-856ae5a43ff1",
+        "propagation_root_uuid": "01a1c7da-6970-7760-a0bc-856ae5a43ff1",
+        "scope_category": "end",
+        "timestamp": "2026-11-10T23:45:42.271394+00:00",
+        "uuid": "01a1c7da-697c-71e2-8e48-5bd40dd874b1"
+      },
+      {
+        "atof_version": "0.1",
+        "attributes": [],
+        "category": "llm",
+        "category_profile": {
+          "annotated_request": {
+            "api_specific": {
+              "api": "openai_chat"
+            },
+            "messages": [
+              {
+                "content": "",
+                "role": "user"
+              }
+            ],
+            "model": "small-local-model"
+          },
+          "model_name": "small-local-model"
+        },
+        "data": {
+          "content": {
+            "messages": [
+              {
+                "content": "",
+                "role": "user"
+              }
+            ],
+            "model": "small-local-model"
+          },
+          "headers": {}
+        },
+        "data_schema": null,
+        "kind": "scope",
+        "metadata": null,
+        "name": "read_results",
+        "parent_uuid": "01a1c7da-6970-7760-a0bc-856ae5a43ff1",
+        "propagation_root_uuid": "01a1c7da-6970-7760-a0bc-856ae5a43ff1",
+        "scope_category": "start",
+        "timestamp": "2026-11-10T23:45:42.271556+00:00",
+        "uuid": "01a1c7da-697f-7893-97a4-ef02415ac09c"
+      },
+      {
+        "atof_version": "0.1",
+        "attributes": [],
+        "category": "llm",
+        "category_profile": {
+          "annotated_response": {
+            "api_specific": {
+              "api": "openai_chat"
+            },
+            "finish_reason": "complete",
+            "id": "x",
+            "message": "",
+            "model": "small-local-model",
+            "object": "chat.completion",
+            "usage": {
+              "completion_tokens": 120,
+              "prompt_tokens": 2400,
+              "total_tokens": 2520
+            }
+          },
+          "model_name": "small-local-model"
+        },
+        "data": {
+          "choices": [
+            {
+              "finish_reason": "stop",
+              "index": 0,
+              "message": {
+                "content": "",
+                "role": "assistant"
+              }
+            }
+          ],
+          "id": "x",
+          "model": "small-local-model",
+          "object": "chat.completion",
+          "usage": {
+            "completion_tokens": 120,
+            "prompt_tokens": 2400,
+            "total_tokens": 2520
+          }
+        },
+        "data_schema": null,
+        "kind": "scope",
+        "metadata": {
+          "otel.status_code": "OK"
+        },
+        "name": "read_results",
+        "parent_uuid": "01a1c7da-6970-7760-a0bc-856ae5a43ff1",
+        "propagation_root_uuid": "01a1c7da-6970-7760-a0bc-856ae5a43ff1",
+        "scope_category": "end",
+        "timestamp": "2026-11-10T23:45:42.276203+00:00",
+        "uuid": "01a1c7da-697f-7893-97a4-ef02415ac09c"
+      },
+      {
+        "atof_version": "0.1",
+        "attributes": [],
+        "category": "tool",
+        "category_profile": {},
+        "data": {},
+        "data_schema": null,
+        "kind": "scope",
+        "metadata": null,
+        "name": "web_search",
+        "parent_uuid": "01a1c7da-6970-7760-a0bc-856ae5a43ff1",
+        "propagation_root_uuid": "01a1c7da-6970-7760-a0bc-856ae5a43ff1",
+        "scope_category": "start",
+        "timestamp": "2026-11-10T23:45:42.276366+00:00",
+        "uuid": "01a1c7da-6984-7df3-93e0-cc67815e5561"
+      },
+      {
+        "atof_version": "0.1",
+        "attributes": [],
+        "category": "tool",
+        "category_profile": {},
+        "data": {},
+        "data_schema": null,
+        "kind": "scope",
+        "metadata": {
+          "otel.status_code": "OK"
+        },
+        "name": "web_search",
+        "parent_uuid": "01a1c7da-6970-7760-a0bc-856ae5a43ff1",
+        "propagation_root_uuid": "01a1c7da-6970-7760-a0bc-856ae5a43ff1",
+        "scope_category": "end",
+        "timestamp": "2026-11-10T23:45:42.278808+00:00",
+        "uuid": "01a1c7da-6984-7df3-93e0-cc67815e5561"
+      },
+      {
+        "atof_version": "0.1",
+        "attributes": [],
+        "category": "llm",
+        "category_profile": {
+          "annotated_request": {
+            "api_specific": {
+              "api": "openai_chat"
+            },
+            "messages": [
+              {
+                "content": "",
+                "role": "user"
+              }
+            ],
+            "model": "small-local-model"
+          },
+          "model_name": "small-local-model"
+        },
+        "data": {
+          "content": {
+            "messages": [
+              {
+                "content": "",
+                "role": "user"
+              }
+            ],
+            "model": "small-local-model"
+          },
+          "headers": {}
+        },
+        "data_schema": null,
+        "kind": "scope",
+        "metadata": null,
+        "name": "read_results",
+        "parent_uuid": "01a1c7da-6970-7760-a0bc-856ae5a43ff1",
+        "propagation_root_uuid": "01a1c7da-6970-7760-a0bc-856ae5a43ff1",
+        "scope_category": "start",
+        "timestamp": "2026-11-10T23:45:42.278955+00:00",
+        "uuid": "01a1c7da-6986-7c01-aa5a-c8fb5349c5ce"
+      },
+      {
+        "atof_version": "0.1",
+        "attributes": [],
+        "category": "llm",
+        "category_profile": {
+          "annotated_response": {
+            "api_specific": {
+              "api": "openai_chat"
+            },
+            "finish_reason": "complete",
+            "id": "x",
+            "message": "",
+            "model": "small-local-model",
+            "object": "chat.completion",
+            "usage": {
+              "completion_tokens": 120,
+              "prompt_tokens": 2400,
+              "total_tokens": 2520
+            }
+          },
+          "model_name": "small-local-model"
+        },
+        "data": {
+          "choices": [
+            {
+              "finish_reason": "stop",
+              "index": 0,
+              "message": {
+                "content": "",
+                "role": "assistant"
+              }
+            }
+          ],
+          "id": "x",
+          "model": "small-local-model",
+          "object": "chat.completion",
+          "usage": {
+            "completion_tokens": 120,
+            "prompt_tokens": 2400,
+            "total_tokens": 2520
+          }
+        },
+        "data_schema": null,
+        "kind": "scope",
+        "metadata": {
+          "otel.status_code": "OK"
+        },
+        "name": "read_results",
+        "parent_uuid": "01a1c7da-6970-7760-a0bc-856ae5a43ff1",
+        "propagation_root_uuid": "01a1c7da-6970-7760-a0bc-856ae5a43ff1",
+        "scope_category": "end",
+        "timestamp": "2026-11-10T23:45:42.283636+00:00",
+        "uuid": "01a1c7da-6986-7c01-aa5a-c8fb5349c5ce"
+      },
+      {
+        "atof_version": "0.1",
+        "attributes": [],
+        "category": "tool",
+        "category_profile": {},
+        "data": {},
+        "data_schema": null,
+        "kind": "scope",
+        "metadata": null,
+        "name": "web_search",
+        "parent_uuid": "01a1c7da-6970-7760-a0bc-856ae5a43ff1",
+        "propagation_root_uuid": "01a1c7da-6970-7760-a0bc-856ae5a43ff1",
+        "scope_category": "start",
+        "timestamp": "2026-11-10T23:45:42.283778+00:00",
+        "uuid": "01a1c7da-698b-7990-8711-93424314a877"
+      },
+      {
+        "atof_version": "0.1",
+        "attributes": [],
+        "category": "tool",
+        "category_profile": {},
+        "data": {},
+        "data_schema": null,
+        "kind": "scope",
+        "metadata": {
+          "otel.status_code": "OK"
+        },
+        "name": "web_search",
+        "parent_uuid": "01a1c7da-6970-7760-a0bc-856ae5a43ff1",
+        "propagation_root_uuid": "01a1c7da-6970-7760-a0bc-856ae5a43ff1",
+        "scope_category": "end",
+        "timestamp": "2026-11-10T23:45:42.286155+00:00",
+        "uuid": "01a1c7da-698b-7990-8711-93424314a877"
+      },
+      {
+        "atof_version": "0.1",
+        "attributes": [],
+        "category": "llm",
+        "category_profile": {
+          "annotated_request": {
+            "api_specific": {
+              "api": "openai_chat"
+            },
+            "messages": [
+              {
+                "content": "",
+                "role": "user"
+              }
+            ],
+            "model": "small-local-model"
+          },
+          "model_name": "small-local-model"
+        },
+        "data": {
+          "content": {
+            "messages": [
+              {
+                "content": "",
+                "role": "user"
+              }
+            ],
+            "model": "small-local-model"
+          },
+          "headers": {}
+        },
+        "data_schema": null,
+        "kind": "scope",
+        "metadata": null,
+        "name": "read_results",
+        "parent_uuid": "01a1c7da-6970-7760-a0bc-856ae5a43ff1",
+        "propagation_root_uuid": "01a1c7da-6970-7760-a0bc-856ae5a43ff1",
+        "scope_category": "start",
+        "timestamp": "2026-11-10T23:45:42.286331+00:00",
+        "uuid": "01a1c7da-698e-7d22-9cfe-4336ef57def4"
+      },
+      {
+        "atof_version": "0.1",
+        "attributes": [],
+        "category": "llm",
+        "category_profile": {
+          "annotated_response": {
+            "api_specific": {
+              "api": "openai_chat"
+            },
+            "finish_reason": "complete",
+            "id": "x",
+            "message": "",
+            "model": "small-local-model",
+            "object": "chat.completion",
+            "usage": {
+              "completion_tokens": 120,
+              "prompt_tokens": 2400,
+              "total_tokens": 2520
+            }
+          },
+          "model_name": "small-local-model"
+        },
+        "data": {
+          "choices": [
+            {
+              "finish_reason": "stop",
+              "index": 0,
+              "message": {
+                "content": "",
+                "role": "assistant"
+              }
+            }
+          ],
+          "id": "x",
+          "model": "small-local-model",
+          "object": "chat.completion",
+          "usage": {
+            "completion_tokens": 120,
+            "prompt_tokens": 2400,
+            "total_tokens": 2520
+          }
+        },
+        "data_schema": null,
+        "kind": "scope",
+        "metadata": {
+          "otel.status_code": "OK"
+        },
+        "name": "read_results",
+        "parent_uuid": "01a1c7da-6970-7760-a0bc-856ae5a43ff1",
+        "propagation_root_uuid": "01a1c7da-6970-7760-a0bc-856ae5a43ff1",
+        "scope_category": "end",
+        "timestamp": "2026-11-10T23:45:42.291177+00:00",
+        "uuid": "01a1c7da-698e-7d22-9cfe-4336ef57def4"
+      },
+      {
+        "atof_version": "0.1",
+        "category": null,
+        "category_profile": null,
+        "data": null,
+        "data_schema": null,
+        "kind": "mark",
+        "metadata": null,
+        "name": "context_compaction",
+        "parent_uuid": "01a1c7da-6970-7760-a0bc-856ae5a43ff1",
+        "propagation_root_uuid": "01a1c7da-6970-7760-a0bc-856ae5a43ff1",
+        "timestamp": "2026-11-10T23:45:42.291381+00:00",
+        "uuid": "01a1c7da-6993-7d32-b879-7e5a06d46ebc"
+      },
+      {
+        "atof_version": "0.1",
+        "attributes": [],
+        "category": "llm",
+        "category_profile": {
+          "annotated_request": {
+            "api_specific": {
+              "api": "openai_chat"
+            },
+            "messages": [
+              {
+                "content": "",
+                "role": "user"
+              }
+            ],
+            "model": "small-local-model"
+          },
+          "model_name": "small-local-model"
+        },
+        "data": {
+          "content": {
+            "messages": [
+              {
+                "content": "",
+                "role": "user"
+              }
+            ],
+            "model": "small-local-model"
+          },
+          "headers": {}
+        },
+        "data_schema": null,
+        "kind": "scope",
+        "metadata": null,
+        "name": "compact",
+        "parent_uuid": "01a1c7da-6970-7760-a0bc-856ae5a43ff1",
+        "propagation_root_uuid": "01a1c7da-6970-7760-a0bc-856ae5a43ff1",
+        "scope_category": "start",
+        "timestamp": "2026-11-10T23:45:42.291452+00:00",
+        "uuid": "01a1c7da-6993-7d32-b879-7e6c3e11083c"
+      },
+      {
+        "atof_version": "0.1",
+        "attributes": [],
+        "category": "llm",
+        "category_profile": {
+          "annotated_response": {
+            "api_specific": {
+              "api": "openai_chat"
+            },
+            "finish_reason": "complete",
+            "id": "x",
+            "message": "",
+            "model": "small-local-model",
+            "object": "chat.completion",
+            "usage": {
+              "completion_tokens": 400,
+              "prompt_tokens": 3000,
+              "total_tokens": 3400
+            }
+          },
+          "model_name": "small-local-model"
+        },
+        "data": {
+          "choices": [
+            {
+              "finish_reason": "stop",
+              "index": 0,
+              "message": {
+                "content": "",
+                "role": "assistant"
+              }
+            }
+          ],
+          "id": "x",
+          "model": "small-local-model",
+          "object": "chat.completion",
+          "usage": {
+            "completion_tokens": 400,
+            "prompt_tokens": 3000,
+            "total_tokens": 3400
+          }
+        },
+        "data_schema": null,
+        "kind": "scope",
+        "metadata": {
+          "otel.status_code": "OK"
+        },
+        "name": "compact",
+        "parent_uuid": "01a1c7da-6970-7760-a0bc-856ae5a43ff1",
+        "propagation_root_uuid": "01a1c7da-6970-7760-a0bc-856ae5a43ff1",
+        "scope_category": "end",
+        "timestamp": "2026-11-10T23:45:42.296132+00:00",
+        "uuid": "01a1c7da-6993-7d32-b879-7e6c3e11083c"
+      },
+      {
+        "atof_version": "0.1",
+        "category": null,
+        "category_profile": null,
+        "data": null,
+        "data_schema": null,
+        "kind": "mark",
+        "metadata": {
+          "eval.passed": true
+        },
+        "name": "eval_result",
+        "parent_uuid": "01a1c7da-6970-7760-a0bc-856ae5a43ff1",
+        "propagation_root_uuid": "01a1c7da-6970-7760-a0bc-856ae5a43ff1",
+        "timestamp": "2026-11-10T23:45:42.296267+00:00",
+        "uuid": "01a1c7da-6998-7a32-a276-ca041ad14bf7"
+      },
+      {
+        "atof_version": "0.1",
+        "attributes": [],
+        "category": "agent",
+        "category_profile": null,
+        "data": null,
+        "data_schema": null,
+        "kind": "scope",
+        "metadata": {
+          "eval.arm": "baseline",
+          "eval.run": 1,
+          "otel.status_code": "OK",
+          "relay.deployment_unit": "personal",
+          "relay.privacy_tier": "L2"
+        },
+        "name": "personal-agent:baseline:1",
+        "parent_uuid": "01a1c7da-6945-7473-ab67-0ef3f8b37151",
+        "propagation_root_uuid": "01a1c7da-6970-7760-a0bc-856ae5a43ff1",
+        "scope_category": "end",
+        "timestamp": "2026-11-10T23:45:42.296282+00:00",
+        "uuid": "01a1c7da-6970-7760-a0bc-856ae5a43ff1"
+      }
+    ]
+  },
+  "final_metrics": {
+    "total_completion_tokens": 940,
+    "total_prompt_tokens": 13500,
+    "total_steps": 12
+  },
+  "schema_version": "ATIF-v1.7",
+  "session_id": "01a1c7da-6970-7760-a0bc-856ae5a43ff1",
+  "steps": [
+    {
+      "extra": {
+        "ancestry": {
+          "function_id": "01a1c7da-6970-7760-a0bc-857303a40342",
+          "function_name": "plan",
+          "parent_id": "01a1c7da-6970-7760-a0bc-856ae5a43ff1",
+          "parent_name": "personal-agent:baseline:1"
+        },
+        "llm_request": {
+          "messages": [
+            {
+              "content": "",
+              "role": "user"
+            }
+          ],
+          "model": "small-local-model"
+        }
+      },
+      "message": "",
+      "source": "user",
+      "step_id": 1,
+      "timestamp": "2026-11-10T23:45:42.256977+00:00"
+    },
+    {
+      "extra": {
+        "ancestry": {
+          "function_id": "01a1c7da-6970-7760-a0bc-857303a40342",
+          "function_name": "plan",
+          "parent_id": "01a1c7da-6970-7760-a0bc-856ae5a43ff1",
+          "parent_name": "personal-agent:baseline:1"
+        },
+        "invocation": {
+          "end_timestamp": 1794354342.261,
+          "framework": "nemo_relay",
+          "invocation_id": "01a1c7da-6970-7760-a0bc-857303a40342",
+          "start_timestamp": 1794354342.256,
+          "status": "completed"
+        },
+        "llm_response": {
+          "choices": [
+            {
+              "finish_reason": "stop",
+              "index": 0,
+              "message": {
+                "content": "",
+                "role": "assistant"
+              }
+            }
+          ],
+          "id": "x",
+          "model": "small-local-model",
+          "object": "chat.completion",
+          "usage": {
+            "completion_tokens": 60,
+            "prompt_tokens": 900,
+            "total_tokens": 960
+          }
+        },
+        "tool_ancestry": [
+          {
+            "function_id": "01a1c7da-6975-76c2-b9d4-1eecd6652344",
+            "function_name": "web_search",
+            "parent_id": "01a1c7da-6970-7760-a0bc-856ae5a43ff1",
+            "parent_name": "personal-agent:baseline:1"
+          }
+        ],
+        "tool_invocations": [
+          {
+            "end_timestamp": 1794354342.263,
+            "framework": "nemo_relay",
+            "invocation_id": "01a1c7da-6975-76c2-b9d4-1eecd6652344",
+            "start_timestamp": 1794354342.261,
+            "status": "completed"
+          }
+        ]
+      },
+      "llm_call_count": 1,
+      "message": "",
+      "metrics": {
+        "completion_tokens": 60,
+        "extra": {
+          "total_tokens": 960
+        },
+        "prompt_tokens": 900
+      },
+      "model_name": "small-local-model",
+      "observation": {
+        "results": [
+          {
+            "extra": {
+              "event_name": "web_search",
+              "event_uuid": "01a1c7da-6975-76c2-b9d4-1eecd6652344",
+              "metadata": {
+                "otel.status_code": "OK"
+              },
+              "parent_event_uuid": "01a1c7da-6970-7760-a0bc-856ae5a43ff1",
+              "tool_result": {}
+            },
+            "source_call_id": "01a1c7da-6975-76c2-b9d4-1eecd6652344"
+          }
+        ]
+      },
+      "source": "agent",
+      "step_id": 2,
+      "timestamp": "2026-11-10T23:45:42.261596+00:00",
+      "tool_calls": [
+        {
+          "arguments": {},
+          "extra": {
+            "event_name": "web_search",
+            "event_uuid": "01a1c7da-6975-76c2-b9d4-1eecd6652344",
+            "parent_event_uuid": "01a1c7da-6970-7760-a0bc-856ae5a43ff1"
+          },
+          "function_name": "web_search",
+          "tool_call_id": "01a1c7da-6975-76c2-b9d4-1eecd6652344"
+        }
+      ]
+    },
+    {
+      "extra": {
+        "ancestry": {
+          "function_id": "01a1c7da-6978-7a03-8291-3fc177bfe48e",
+          "function_name": "read_results",
+          "parent_id": "01a1c7da-6970-7760-a0bc-856ae5a43ff1",
+          "parent_name": "personal-agent:baseline:1"
+        },
+        "llm_request": {
+          "messages": [
+            {
+              "content": "",
+              "role": "user"
+            }
+          ],
+          "model": "small-local-model"
+        }
+      },
+      "message": "",
+      "source": "user",
+      "step_id": 3,
+      "timestamp": "2026-11-10T23:45:42.264085+00:00"
+    },
+    {
+      "extra": {
+        "ancestry": {
+          "function_id": "01a1c7da-6978-7a03-8291-3fc177bfe48e",
+          "function_name": "read_results",
+          "parent_id": "01a1c7da-6970-7760-a0bc-856ae5a43ff1",
+          "parent_name": "personal-agent:baseline:1"
+        },
+        "invocation": {
+          "end_timestamp": 1794354342.268,
+          "framework": "nemo_relay",
+          "invocation_id": "01a1c7da-6978-7a03-8291-3fc177bfe48e",
+          "start_timestamp": 1794354342.264,
+          "status": "completed"
+        },
+        "llm_response": {
+          "choices": [
+            {
+              "finish_reason": "stop",
+              "index": 0,
+              "message": {
+                "content": "",
+                "role": "assistant"
+              }
+            }
+          ],
+          "id": "x",
+          "model": "small-local-model",
+          "object": "chat.completion",
+          "usage": {
+            "completion_tokens": 120,
+            "prompt_tokens": 2400,
+            "total_tokens": 2520
+          }
+        },
+        "tool_ancestry": [
+          {
+            "function_id": "01a1c7da-697c-71e2-8e48-5bd40dd874b1",
+            "function_name": "web_search",
+            "parent_id": "01a1c7da-6970-7760-a0bc-856ae5a43ff1",
+            "parent_name": "personal-agent:baseline:1"
+          }
+        ],
+        "tool_invocations": [
+          {
+            "end_timestamp": 1794354342.271,
+            "framework": "nemo_relay",
+            "invocation_id": "01a1c7da-697c-71e2-8e48-5bd40dd874b1",
+            "start_timestamp": 1794354342.268,
+            "status": "completed"
+          }
+        ]
+      },
+      "llm_call_count": 1,
+      "message": "",
+      "metrics": {
+        "completion_tokens": 120,
+        "extra": {
+          "total_tokens": 2520
+        },
+        "prompt_tokens": 2400
+      },
+      "model_name": "small-local-model",
+      "observation": {
+        "results": [
+          {
+            "extra": {
+              "event_name": "web_search",
+              "event_uuid": "01a1c7da-697c-71e2-8e48-5bd40dd874b1",
+              "metadata": {
+                "otel.status_code": "OK"
+              },
+              "parent_event_uuid": "01a1c7da-6970-7760-a0bc-856ae5a43ff1",
+              "tool_result": {}
+            },
+            "source_call_id": "01a1c7da-697c-71e2-8e48-5bd40dd874b1"
+          }
+        ]
+      },
+      "source": "agent",
+      "step_id": 4,
+      "timestamp": "2026-11-10T23:45:42.268785+00:00",
+      "tool_calls": [
+        {
+          "arguments": {},
+          "extra": {
+            "event_name": "web_search",
+            "event_uuid": "01a1c7da-697c-71e2-8e48-5bd40dd874b1",
+            "parent_event_uuid": "01a1c7da-6970-7760-a0bc-856ae5a43ff1"
+          },
+          "function_name": "web_search",
+          "tool_call_id": "01a1c7da-697c-71e2-8e48-5bd40dd874b1"
+        }
+      ]
+    },
+    {
+      "extra": {
+        "ancestry": {
+          "function_id": "01a1c7da-697f-7893-97a4-ef02415ac09c",
+          "function_name": "read_results",
+          "parent_id": "01a1c7da-6970-7760-a0bc-856ae5a43ff1",
+          "parent_name": "personal-agent:baseline:1"
+        },
+        "llm_request": {
+          "messages": [
+            {
+              "content": "",
+              "role": "user"
+            }
+          ],
+          "model": "small-local-model"
+        }
+      },
+      "message": "",
+      "source": "user",
+      "step_id": 5,
+      "timestamp": "2026-11-10T23:45:42.271556+00:00"
+    },
+    {
+      "extra": {
+        "ancestry": {
+          "function_id": "01a1c7da-697f-7893-97a4-ef02415ac09c",
+          "function_name": "read_results",
+          "parent_id": "01a1c7da-6970-7760-a0bc-856ae5a43ff1",
+          "parent_name": "personal-agent:baseline:1"
+        },
+        "invocation": {
+          "end_timestamp": 1794354342.276,
+          "framework": "nemo_relay",
+          "invocation_id": "01a1c7da-697f-7893-97a4-ef02415ac09c",
+          "start_timestamp": 1794354342.271,
+          "status": "completed"
+        },
+        "llm_response": {
+          "choices": [
+            {
+              "finish_reason": "stop",
+              "index": 0,
+              "message": {
+                "content": "",
+                "role": "assistant"
+              }
+            }
+          ],
+          "id": "x",
+          "model": "small-local-model",
+          "object": "chat.completion",
+          "usage": {
+            "completion_tokens": 120,
+            "prompt_tokens": 2400,
+            "total_tokens": 2520
+          }
+        },
+        "tool_ancestry": [
+          {
+            "function_id": "01a1c7da-6984-7df3-93e0-cc67815e5561",
+            "function_name": "web_search",
+            "parent_id": "01a1c7da-6970-7760-a0bc-856ae5a43ff1",
+            "parent_name": "personal-agent:baseline:1"
+          }
+        ],
+        "tool_invocations": [
+          {
+            "end_timestamp": 1794354342.278,
+            "framework": "nemo_relay",
+            "invocation_id": "01a1c7da-6984-7df3-93e0-cc67815e5561",
+            "start_timestamp": 1794354342.276,
+            "status": "completed"
+          }
+        ]
+      },
+      "llm_call_count": 1,
+      "message": "",
+      "metrics": {
+        "completion_tokens": 120,
+        "extra": {
+          "total_tokens": 2520
+        },
+        "prompt_tokens": 2400
+      },
+      "model_name": "small-local-model",
+      "observation": {
+        "results": [
+          {
+            "extra": {
+              "event_name": "web_search",
+              "event_uuid": "01a1c7da-6984-7df3-93e0-cc67815e5561",
+              "metadata": {
+                "otel.status_code": "OK"
+              },
+              "parent_event_uuid": "01a1c7da-6970-7760-a0bc-856ae5a43ff1",
+              "tool_result": {}
+            },
+            "source_call_id": "01a1c7da-6984-7df3-93e0-cc67815e5561"
+          }
+        ]
+      },
+      "source": "agent",
+      "step_id": 6,
+      "timestamp": "2026-11-10T23:45:42.276203+00:00",
+      "tool_calls": [
+        {
+          "arguments": {},
+          "extra": {
+            "event_name": "web_search",
+            "event_uuid": "01a1c7da-6984-7df3-93e0-cc67815e5561",
+            "parent_event_uuid": "01a1c7da-6970-7760-a0bc-856ae5a43ff1"
+          },
+          "function_name": "web_search",
+          "tool_call_id": "01a1c7da-6984-7df3-93e0-cc67815e5561"
+        }
+      ]
+    },
+    {
+      "extra": {
+        "ancestry": {
+          "function_id": "01a1c7da-6986-7c01-aa5a-c8fb5349c5ce",
+          "function_name": "read_results",
+          "parent_id": "01a1c7da-6970-7760-a0bc-856ae5a43ff1",
+          "parent_name": "personal-agent:baseline:1"
+        },
+        "llm_request": {
+          "messages": [
+            {
+              "content": "",
+              "role": "user"
+            }
+          ],
+          "model": "small-local-model"
+        }
+      },
+      "message": "",
+      "source": "user",
+      "step_id": 7,
+      "timestamp": "2026-11-10T23:45:42.278955+00:00"
+    },
+    {
+      "extra": {
+        "ancestry": {
+          "function_id": "01a1c7da-6986-7c01-aa5a-c8fb5349c5ce",
+          "function_name": "read_results",
+          "parent_id": "01a1c7da-6970-7760-a0bc-856ae5a43ff1",
+          "parent_name": "personal-agent:baseline:1"
+        },
+        "invocation": {
+          "end_timestamp": 1794354342.283,
+          "framework": "nemo_relay",
+          "invocation_id": "01a1c7da-6986-7c01-aa5a-c8fb5349c5ce",
+          "start_timestamp": 1794354342.278,
+          "status": "completed"
+        },
+        "llm_response": {
+          "choices": [
+            {
+              "finish_reason": "stop",
+              "index": 0,
+              "message": {
+                "content": "",
+                "role": "assistant"
+              }
+            }
+          ],
+          "id": "x",
+          "model": "small-local-model",
+          "object": "chat.completion",
+          "usage": {
+            "completion_tokens": 120,
+            "prompt_tokens": 2400,
+            "total_tokens": 2520
+          }
+        },
+        "tool_ancestry": [
+          {
+            "function_id": "01a1c7da-698b-7990-8711-93424314a877",
+            "function_name": "web_search",
+            "parent_id": "01a1c7da-6970-7760-a0bc-856ae5a43ff1",
+            "parent_name": "personal-agent:baseline:1"
+          }
+        ],
+        "tool_invocations": [
+          {
+            "end_timestamp": 1794354342.286,
+            "framework": "nemo_relay",
+            "invocation_id": "01a1c7da-698b-7990-8711-93424314a877",
+            "start_timestamp": 1794354342.283,
+            "status": "completed"
+          }
+        ]
+      },
+      "llm_call_count": 1,
+      "message": "",
+      "metrics": {
+        "completion_tokens": 120,
+        "extra": {
+          "total_tokens": 2520
+        },
+        "prompt_tokens": 2400
+      },
+      "model_name": "small-local-model",
+      "observation": {
+        "results": [
+          {
+            "extra": {
+              "event_name": "web_search",
+              "event_uuid": "01a1c7da-698b-7990-8711-93424314a877",
+              "metadata": {
+                "otel.status_code": "OK"
+              },
+              "parent_event_uuid": "01a1c7da-6970-7760-a0bc-856ae5a43ff1",
+              "tool_result": {}
+            },
+            "source_call_id": "01a1c7da-698b-7990-8711-93424314a877"
+          }
+        ]
+      },
+      "source": "agent",
+      "step_id": 8,
+      "timestamp": "2026-11-10T23:45:42.283636+00:00",
+      "tool_calls": [
+        {
+          "arguments": {},
+          "extra": {
+            "event_name": "web_search",
+            "event_uuid": "01a1c7da-698b-7990-8711-93424314a877",
+            "parent_event_uuid": "01a1c7da-6970-7760-a0bc-856ae5a43ff1"
+          },
+          "function_name": "web_search",
+          "tool_call_id": "01a1c7da-698b-7990-8711-93424314a877"
+        }
+      ]
+    },
+    {
+      "extra": {
+        "ancestry": {
+          "function_id": "01a1c7da-698e-7d22-9cfe-4336ef57def4",
+          "function_name": "read_results",
+          "parent_id": "01a1c7da-6970-7760-a0bc-856ae5a43ff1",
+          "parent_name": "personal-agent:baseline:1"
+        },
+        "llm_request": {
+          "messages": [
+            {
+              "content": "",
+              "role": "user"
+            }
+          ],
+          "model": "small-local-model"
+        }
+      },
+      "message": "",
+      "source": "user",
+      "step_id": 9,
+      "timestamp": "2026-11-10T23:45:42.286331+00:00"
+    },
+    {
+      "extra": {
+        "ancestry": {
+          "function_id": "01a1c7da-698e-7d22-9cfe-4336ef57def4",
+          "function_name": "read_results",
+          "parent_id": "01a1c7da-6970-7760-a0bc-856ae5a43ff1",
+          "parent_name": "personal-agent:baseline:1"
+        },
+        "invocation": {
+          "end_timestamp": 1794354342.291,
+          "framework": "nemo_relay",
+          "invocation_id": "01a1c7da-698e-7d22-9cfe-4336ef57def4",
+          "start_timestamp": 1794354342.286,
+          "status": "completed"
+        },
+        "llm_response": {
+          "choices": [
+            {
+              "finish_reason": "stop",
+              "index": 0,
+              "message": {
+                "content": "",
+                "role": "assistant"
+              }
+            }
+          ],
+          "id": "x",
+          "model": "small-local-model",
+          "object": "chat.completion",
+          "usage": {
+            "completion_tokens": 120,
+            "prompt_tokens": 2400,
+            "total_tokens": 2520
+          }
+        }
+      },
+      "llm_call_count": 1,
+      "message": "",
+      "metrics": {
+        "completion_tokens": 120,
+        "extra": {
+          "total_tokens": 2520
+        },
+        "prompt_tokens": 2400
+      },
+      "model_name": "small-local-model",
+      "source": "agent",
+      "step_id": 10,
+      "timestamp": "2026-11-10T23:45:42.291177+00:00"
+    },
+    {
+      "extra": {
+        "ancestry": {
+          "function_id": "01a1c7da-6993-7d32-b879-7e6c3e11083c",
+          "function_name": "compact",
+          "parent_id": "01a1c7da-6970-7760-a0bc-856ae5a43ff1",
+          "parent_name": "personal-agent:baseline:1"
+        },
+        "llm_request": {
+          "messages": [
+            {
+              "content": "",
+              "role": "user"
+            }
+          ],
+          "model": "small-local-model"
+        }
+      },
+      "message": "",
+      "source": "user",
+      "step_id": 11,
+      "timestamp": "2026-11-10T23:45:42.291452+00:00"
+    },
+    {
+      "extra": {
+        "ancestry": {
+          "function_id": "01a1c7da-6993-7d32-b879-7e6c3e11083c",
+          "function_name": "compact",
+          "parent_id": "01a1c7da-6970-7760-a0bc-856ae5a43ff1",
+          "parent_name": "personal-agent:baseline:1"
+        },
+        "invocation": {
+          "end_timestamp": 1794354342.296,
+          "framework": "nemo_relay",
+          "invocation_id": "01a1c7da-6993-7d32-b879-7e6c3e11083c",
+          "start_timestamp": 1794354342.291,
+          "status": "completed"
+        },
+        "llm_response": {
+          "choices": [
+            {
+              "finish_reason": "stop",
+              "index": 0,
+              "message": {
+                "content": "",
+                "role": "assistant"
+              }
+            }
+          ],
+          "id": "x",
+          "model": "small-local-model",
+          "object": "chat.completion",
+          "usage": {
+            "completion_tokens": 400,
+            "prompt_tokens": 3000,
+            "total_tokens": 3400
+          }
+        }
+      },
+      "llm_call_count": 1,
+      "message": "",
+      "metrics": {
+        "completion_tokens": 400,
+        "extra": {
+          "total_tokens": 3400
+        },
+        "prompt_tokens": 3000
+      },
+      "model_name": "small-local-model",
+      "source": "agent",
+      "step_id": 12,
+      "timestamp": "2026-11-10T23:45:42.296132+00:00"
+    }
+  ],
+  "trajectory_id": "01a1c7da-6970-7760-a0bc-856ae5a43ff1"
+}
